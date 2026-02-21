@@ -7,8 +7,8 @@ pip install -r requirements.txt
 # Convert static files
 python manage.py collectstatic --no-input
 
-# Apply any outstanding database migrations
-python manage.py migrate
+# Skip migrations as we use a mock MongoDB engine
+# python manage.py migrate
 
-# Create superuser for admin access
-python create_superuser.py
+# Create superuser is handled by our direct MongoDB seeding / auto-seed on login
+# python create_superuser.py

@@ -96,6 +96,7 @@ CORS_ALLOW_METHODS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -107,7 +108,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'cloudinary',
-    'cloudinary_storage',
     # Local apps
     'apps.projects',
     'apps.services',
@@ -158,22 +158,22 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Disable migrations for all apps to silence the "unapplied migrations" warning
 # in this mock MongoDB environment.
 MIGRATION_MODULES = {
-    'admin': None,
-    'auth': None,
-    'contenttypes': None,
-    'sessions': None,
-    'messages': None,
-    'about': None,
-    'cart': None,
-    'chatbot': None,
-    'config_api': None,
-    'estimation': None,
-    'projects': None,
-    'services': None,
-    'authentication': None,
-    'contact': None,
-    'theme': None,
-    'colors': None,
+    'admin': 'apps.no_migrations',
+    'auth': 'apps.no_migrations',
+    'contenttypes': 'apps.no_migrations',
+    'sessions': 'apps.no_migrations',
+    'messages': 'apps.no_migrations',
+    'about': 'apps.no_migrations',
+    'cart': 'apps.no_migrations',
+    'chatbot': 'apps.no_migrations',
+    'config_api': 'apps.no_migrations',
+    'estimation': 'apps.no_migrations',
+    'projects': 'apps.no_migrations',
+    'services': 'apps.no_migrations',
+    'authentication': 'apps.no_migrations',
+    'contact': 'apps.no_migrations',
+    'theme': 'apps.no_migrations',
+    'colors': 'apps.no_migrations',
 }
 
 
@@ -281,7 +281,7 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
     'AUTH_HEADER_TYPES': ('Bearer',),
-    'SIGNING_KEY': os.getenv('JWT_SECRET_KEY'),
+    'SIGNING_KEY': os.getenv('JWT_SECRET_KEY') or SECRET_KEY,
 }
 
 RESEND_API_KEY = os.getenv('RESEND_API_KEY')
