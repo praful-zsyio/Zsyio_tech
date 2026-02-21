@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { login as apiLogin, logout as apiLogout, ACCESS_TOKEN } from '../services/api';
+import Reactotron from '../../ReactotronConfig';
 
 export const AuthContext = createContext();
 
@@ -21,9 +22,11 @@ export const AuthProvider = ({ children }) => {
         try {
             await apiLogin(username, password);
             setUser({ username, isAuthenticated: true });
+            if (import.meta.env.DEV) Reactotron.display({ name: 'AUTH', value: { username }, preview: 'Login Success' });
             return { success: true };
         } catch (error) {
             console.error("Login failed", error);
+            if (import.meta.env.DEV) Reactotron.error('Login Failed', error);
             return { success: false, error: error.response?.data?.detail || "Login failed" };
         }
     };

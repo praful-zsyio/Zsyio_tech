@@ -1,9 +1,15 @@
 import { useData } from "../../context/DataContext";
 
-const AboutHero = () => {
+const AboutHero = ({ data }) => {
   const { globalData, loading: isLoading } = useData();
-  const topStats = globalData?.aboutData?.stats?.studio || [];
-  const bottomStats = globalData?.aboutData?.stats?.meta || [];
+
+  // Use data from prop if available (from /api/about/), otherwise fall back to global context
+  const title = data?.title || globalData?.site_name || "Zsyio Studio";
+  const subtitle = data?.subtitle || "Architecting Tomorrow's Solutions";
+  const mainDescription = data?.description || globalData?.site_tagline || "We build bespoke software, web, and mobile solutions that empower businesses to scale and innovate.";
+
+  const topStats = data?.stats?.studio || globalData?.aboutData?.stats?.studio || [];
+  const bottomStats = data?.stats?.meta || globalData?.aboutData?.stats?.meta || [];
 
 
   return (
@@ -25,18 +31,15 @@ const AboutHero = () => {
           {/* LEFT: main story */}
           <div className="max-w-2xl">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-[linear-gradient(120deg,hsl(var(--yellow)),hsl(var(--blue)))]">
-              We turn complex ideas into reliable, scalable software.
+              {title}
             </h1>
 
             <p className="text-base md:text-lg text-[hsl(var(--subtext1))] mb-4">
-              Pioneering Digital Transformation Through Innovative IT
-              Solutions.
+              {subtitle}
             </p>
 
             <p className="text-sm md:text-base text-[hsl(var(--subtext0))] mb-4">
-              We partner with teams to design, build, and launch digital
-              products across web, mobile, cloud, and AI—built for longevity,
-              performance, and real-world outcomes.
+              {mainDescription}
             </p>
 
             <div className="mt-2 flex flex-wrap gap-2 md:gap-3 text-xs md:text-sm text-[hsl(var(--subtext0))]">

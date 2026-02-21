@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Reactotron from '../../ReactotronConfig';
 
 export const ACCESS_TOKEN = 'access_token';
 export const REFRESH_TOKEN = 'refresh_token';
@@ -19,13 +20,29 @@ api.interceptors.request.use(
         if (token && !config.skipAuth) {
             config.headers.Authorization = `Bearer ${token}`;
         }
+
+        // Log to Reactotron
+        if (import.meta.env.DEV) {
+            Reactotron.log(`🚀 Request: ${config.method?.toUpperCase()} ${config.url}`, config.data || {});
+        }
+
         return config;
     },
-    (error) => Promise.reject(error)
+    (error) => {
+        if (import.meta.env.DEV) {
+            Reactotron.error(`❌ Request Error:`, error);
+        }
+        return Promise.reject(error);
+    }
 );
 
 api.interceptors.response.use(
-    (response) => response,
+    (response) => {
+        if (import.meta.env.DEV) {
+            Reactotron.log(`✅ Response: ${response.config.method?.toUpperCase()} ${response.config.url}`, response.data);
+        }
+        return response;
+    },
     async (error) => {
         const originalRequest = error.config;
         if (error.response?.status === 401 && !originalRequest._retry) {

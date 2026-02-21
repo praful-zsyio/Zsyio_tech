@@ -1,35 +1,27 @@
 import React from "react";
 
-const MissionVisionSection = () => {
+const MissionVisionSection = ({ data }) => {
+  const missionText = data?.mission || "To empower businesses worldwide through innovative technology solutions that simplify complexity and drive sustainable growth. We believe in building digital tools that don't just work, but inspire.";
+  const visionText = data?.vision || "To be the most trusted global partner for digital innovation, recognized for our engineering excellence, client-first approach, and commitment to creating a future where technology serves humanity effortlessly.";
   return (
     <section className="py-20 md:py-24">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid gap-12 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1.1fr)] items-start">
-          <div className="animate-in-view">
-            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(var(--subtext0))] mb-2">
-              Why we exist
-            </p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[hsl(var(--blue))] mb-4">
+          <div className="bg-[hsl(var(--mantle))] rounded-2xl p-8 md:p-10 border border-[hsl(var(--surface2))] animate-in-view">
+            <h3 className="text-2xl font-bold mb-6 text-[hsl(var(--blue))]">
               Our Mission
-            </h2>
-            <p className="text-lg text-[hsl(var(--subtext1))] leading-relaxed">
-              To empower businesses with cutting-edge technology, robust
-              solutions, and strategic insights, enabling them to thrive in an
-              ever-evolving digital landscape.
+            </h3>
+            <p className="text-[hsl(var(--subtext1))] leading-relaxed text-lg">
+              {missionText}
             </p>
           </div>
-
-          <div className="animate-in-view">
-            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(var(--subtext0))] mb-2">
-              Where we&apos;re going
-            </p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-[hsl(var(--blue))] mb-4">
+          {/* Vision */}
+          <div className="bg-[hsl(var(--mantle))] rounded-2xl p-8 md:p-10 border border-[hsl(var(--surface2))] animate-in-view">
+            <h3 className="text-2xl font-bold mb-6 text-[hsl(var(--peach))]">
               Our Vision
-            </h2>
-            <p className="text-lg text-[hsl(var(--subtext1))] leading-relaxed">
-              To be a global leader in IT services and consulting, recognized
-              for our commitment to innovation, quality, and unwavering client
-              success.
+            </h3>
+            <p className="text-[hsl(var(--subtext1))] leading-relaxed text-lg">
+              {visionText}
             </p>
           </div>
         </div>

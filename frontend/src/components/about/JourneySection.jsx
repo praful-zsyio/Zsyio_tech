@@ -1,24 +1,22 @@
 import React from "react";
 
-const JourneySection = () => {
+const JourneySection = ({ data }) => {
+  const title = data?.journey_title || "Our Journey";
+  const subtitle = data?.journey_subtitle || "From idea to trusted partner";
+  const description = data?.journey_description || "Founded by a team of passionate technologists, Zsyio began with a simple yet powerful idea: to bridge the gap between business challenges and technological solutions. From our humble beginnings, we have grown into a trusted partner for organizations worldwide, driven by our relentless pursuit of excellence and a deep understanding of the industries we serve. Our journey is a testament to the power of collaboration, innovation, and a client-first approach.";
+
   return (
     <section className="py-20 md:py-24 bg-[hsl(var(--mantle))]">
       <div className="container mx-auto px-6 max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 animate-in-view">
-          Our Journey
+          {title}
         </h2>
         <p className="text-center text-xs uppercase tracking-[0.25em] text-[hsl(var(--subtext0))] mb-8 animate-in-view">
-          From idea to trusted partner
+          {subtitle}
         </p>
 
         <p className="text-lg text-[hsl(var(--subtext1))] leading-relaxed text-center mb-10 animate-in-view">
-          Founded by a team of passionate technologists, Zsyio began with a
-          simple yet powerful idea: to bridge the gap between business
-          challenges and technological solutions. From our humble beginnings, we
-          have grown into a trusted partner for organizations worldwide, driven
-          by our relentless pursuit of excellence and a deep understanding of
-          the industries we serve. Our journey is a testament to the power of
-          collaboration, innovation, and a client-first approach.
+          {description}
         </p>
 
         <div className="relative mt-10 max-w-3xl mx-auto animate-in-view">
