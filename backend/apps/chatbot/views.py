@@ -2,9 +2,7 @@ import os
 from openai import OpenAI
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from apps.utils.mongo import get_mongo_db, mongo_log
-import datetime
-from bson.objectid import ObjectId
+from .models import ChatMessage
 
 class ChatView(APIView):
     def post(self, request):
@@ -39,22 +37,10 @@ class ChatView(APIView):
         except Exception as e:
             bot_reply = f"Error processing request: {str(e)}"
 
-        # Direct MongoDB storage
-        db = get_mongo_db()
-        chat_id = "pending"
-        if db is not None:
-            res = db['chat_messages'].insert_one({
-                "user_message": message,
-                "bot_response": bot_reply,
-                "timestamp": datetime.datetime.utcnow(),
-                "user_id": str(request.user.id) if request.user.is_authenticated else "anonymous"
-            })
-            chat_id = str(res.inserted_id)
+        # Save to SQLite3
+        chat_msg = ChatMessage.objects.create(
+            user_message=message,
+            bot_response=bot_reply
+        )
 
-        mongo_log('chat_logs', {
-            'user_message': message,
-            'bot_response': bot_reply,
-            'chat_id': chat_id
-        })
-
-        return Response({"response": bot_reply, "id": chat_id})
+        return Response({"response": bot_reply, "id": chat_msg.id})

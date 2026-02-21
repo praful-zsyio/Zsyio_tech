@@ -155,58 +155,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# Disable migrations for all apps to silence the "unapplied migrations" warning
-# in this mock MongoDB environment.
-MIGRATION_MODULES = {
-    'admin': 'apps.no_migrations',
-    'auth': 'apps.no_migrations',
-    'contenttypes': 'apps.no_migrations',
-    'sessions': 'apps.no_migrations',
-    'messages': 'apps.no_migrations',
-    'about': 'apps.no_migrations',
-    'cart': 'apps.no_migrations',
-    'chatbot': 'apps.no_migrations',
-    'config_api': 'apps.no_migrations',
-    'estimation': 'apps.no_migrations',
-    'projects': 'apps.no_migrations',
-    'services': 'apps.no_migrations',
-    'authentication': 'apps.no_migrations',
-    'contact': 'apps.no_migrations',
-    'theme': 'apps.no_migrations',
-    'colors': 'apps.no_migrations',
-}
-
-
 # Database configuration
-# This project is configured to use ONLY MongoDB.
-# We use a custom 'mongodb_mock' engine to satisfy Django's requirements
-# while performing actual data operations via pymongo in views.
 DATABASES = {
     'default': {
-        'ENGINE': 'mongodb_mock',
-        'NAME': 'zsyio_db',
-        'ENFORCE_SCHEMA': False,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-import pymongo
-MONGO_URI = os.getenv("MONGO_URI")
-if MONGO_URI:
-    try:
-        MONGO_CLIENT = pymongo.MongoClient(
-            MONGO_URI, 
-            serverSelectionTimeoutMS=5000, 
-            tlsAllowInvalidCertificates=True
-        )
-        # Verify connection
-        MONGO_CLIENT.admin.command('ismaster')
-        print("MongoDB Connected Successfully")
-    except Exception as e:
-        print(f"MongoDB Connection Failed: {e}")
-        MONGO_CLIENT = None
-else:
-    print("MONGO_URI not set (skipping MongoDB connection)")
-    MONGO_CLIENT = None
 
 
 # Password validation

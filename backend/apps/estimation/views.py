@@ -1,8 +1,6 @@
-from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
-from apps.utils.mongo import mongo_log
 
 # Hardcoded defaults as fallback
 DEFAULT_INPUTS = {
@@ -46,21 +44,6 @@ class EstimateRulesView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request):
-        # Try to fetch from MongoDB if available
-        if hasattr(settings, 'MONGO_CLIENT') and settings.MONGO_CLIENT:
-            try:
-                db = settings.MONGO_CLIENT['zsyio_db']
-                collection = db['estimation_rules']
-                # Assuming one document or list of documents. Let's fetch the first config doc.
-                rules_doc = collection.find_one({"type": "defaults"})
-                if rules_doc:
-                    # Remove _id
-                    rules_doc.pop('_id', None)
-                    return Response(rules_doc.get('data', DEFAULT_INPUTS))
-            except Exception as e:
-                print(f"MongoDB Read Error: {e}")
-        
-        # Fallback
         return Response(DEFAULT_INPUTS)
 
 class EstimateView(APIView):
@@ -73,13 +56,6 @@ class EstimateView(APIView):
             return Response({"error": "Service ID required"}, status=status.HTTP_400_BAD_REQUEST)
 
         result = self.calculate_cost(service_id, params)
-
-        mongo_log('estimations', {
-            'service_id': service_id,
-            'params': params,
-            'estimated_cost': result['total'],
-        })
-
         return Response({"estimatedCost": result['total'], "breakdown": result['breakdown']})
 
     def calculate_cost(self, service_id, params):
@@ -98,23 +74,10 @@ class EstimateView(APIView):
         if service_id == "web-designing":
             iterations = int(params.get('iterations', 1))
             logo = params.get('logo', False)
-            add("Base Price", 15000)
-            add(f"Pages ({pages})", pages * 2000)
-            add(f"Extra Iterations ({max(1, iterations - 1) - 1 if iterations > 1 else 0})", max(0, iterations - 2) * 5000) # Logic in original was max(1, iterations - 1) * 5000 -> wait, original was (max(1, iterations - 1) * 5000)? No, let's check original logic.
-            # Original: 15000 + (pages * 2000) + (max(1, iterations - 1) * 5000) + (6000 if logo else 0)
-            # Actually original logic seems slightly odd: max(1, iterations-1). if iterations=1, max(1,0)=1 * 5000. So 1 iteration costs 5000 extra? Maybe base includes 1?
-            # Let's stick to EXACT original math but break it down.
-            
-            # Original: cost = 15000 + (pages * 2000) + (max(1, iterations - 1) * 5000) + (6000 if logo else 0)
-            
-            # Re-implementing exact math:
             add("Base Design Package", 15000)
             add(f"Additional Pages ({pages})", pages * 2000)
-            
-            # Iterations part
             iter_cost = max(1, iterations - 1) * 5000
             add(f"Design Iterations", iter_cost)
-            
             if logo:
                 add("Logo Design", 6000)
         

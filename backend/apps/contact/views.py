@@ -1,40 +1,26 @@
 from rest_framework import generics, status, permissions
 from rest_framework.response import Response
+from .models import ContactSubmission
 from .serializers import ContactSubmissionSerializer
 from django.conf import settings
 import resend
 import os
-import datetime
-from apps.utils.mongo import get_mongo_db, mongo_log
 
 class ContactSubmissionView(generics.CreateAPIView):
+    queryset = ContactSubmission.objects.all()
     serializer_class = ContactSubmissionSerializer
     permission_classes = [permissions.AllowAny]
     authentication_classes = []
 
-    def post(self, request, *args, **kwargs):
-        # Validate data without saving to ORM
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+    def perform_create(self, serializer):
+        # Save to SQLite3 via Django ORM
+        instance = serializer.save()
         
-        data = serializer.validated_data
-        name = data.get('name')
-        email = data.get('email')
-        phone = data.get('phone', '')
-        message = data.get('message')
+        name = instance.name
+        email = instance.email
+        message = instance.message
         
-        # Log to MongoDB
-        submission_id = 'pending'
-        mongo_success = mongo_log('contact_submissions', {
-            'type': 'contact_submission',
-            'name': name,
-            'email': email,
-            'phone': phone,
-            'message': message,
-            'created_at': datetime.datetime.utcnow()
-        })
-        
-        # Email logic
+        # Email logic (keeping the user's existing logic)
         try:
             resend.api_key = getattr(settings, 'RESEND_API_KEY', os.getenv("RESEND_API_KEY"))
             from_email = getattr(settings, 'RESEND_FROM_EMAIL', "onboarding@resend.dev") or "onboarding@resend.dev"
@@ -65,5 +51,3 @@ class ContactSubmissionView(generics.CreateAPIView):
                 
         except Exception as e:
             print(f"Critical error in contact email logic: {str(e)}")
-
-        return Response({"status": "success", "message": "Message sent successfully"}, status=status.HTTP_201_CREATED)
