@@ -1,0 +1,12 @@
+  main
+  main-h
+  main_t
+  main_u
+* main_update
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+  remotes/origin/main_A
+  remotes/origin/main_p
+  remotes/origin/main_t
+  remotes/origin/main_u
+  remotes/origin/main_update

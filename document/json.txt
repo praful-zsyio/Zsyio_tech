@@ -1,0 +1,365 @@
+[
+  {
+    "SECTION": "1. PROJECTS API (/api/projects/)",
+    "ENDPOINT": "GET /api/projects/",
+    "DATA_COUNT": 10,
+    "SAMPLE_DATA": [
+      {
+        "id": 1,
+        "title": "FinTech Dashboard",
+        "category": "Web Development",
+        "slug": "fintech-dashboard",
+        "summary": "Full-scale banking dashboard with real-time analytics.",
+        "description": "A comprehensive financial management system featuring real-time data visualization, secure transaction processing, and multi-currency support.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222000/projects/p1.jpg",
+        "tech_stack": ["React", "D3.js", "Node.js", "PostgreSQL"],
+        "tags": ["Finance", "Analytics", "SaaS"],
+        "live_url": "https://fintech.zsyio.com",
+        "github_url": "https://github.com/zsyio/fintech-dashboard",
+        "client": "Global Bank Inc.",
+        "duration": "6 Months",
+        "completion_date": "2024-01-15",
+        "role": "Lead Development Partner"
+      },
+      {
+        "id": 2,
+        "title": "HealthTrack AI",
+        "category": "Mobile App",
+        "slug": "healthtrack-ai",
+        "summary": "AI-powered fitness and nutrition tracking app.",
+        "description": "Mobile application that uses machine learning to provide personalized health recommendations and track fitness goals seamlessly.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222001/projects/p2.jpg",
+        "tech_stack": ["React Native", "Tensorflow Lite", "Firebase"],
+        "tags": ["AI", "Healthcare", "Mobile"],
+        "live_url": "https://healthtrack.ai",
+        "github_url": null,
+        "client": "Wellness Co.",
+        "duration": "4 Months",
+        "completion_date": "2023-11-20",
+        "role": "Full Stack Development"
+      },
+      {
+        "id": 3,
+        "title": "EcoShop E-Commerce",
+        "category": "Web Development",
+        "slug": "ecoshop",
+        "summary": "Sustainable marketplace for eco-friendly products.",
+        "description": "A high-performance e-commerce platform built with modern headless architecture, featuring advanced search and secure payments.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222002/projects/p3.jpg",
+        "tech_stack": ["Next.js", "Shopify Hydrogen", "Tailwind CSS"],
+        "tags": ["E-Commerce", "Sustainability", "Retail"],
+        "live_url": "https://ecoshop.example.com",
+        "github_url": "https://github.com/zsyio/ecoshop",
+        "client": "EcoSolutions",
+        "duration": "5 Months",
+        "completion_date": "2024-02-10",
+        "role": "UI/UX & Engineering"
+      },
+      {
+        "id": 4,
+        "title": "EduLearn Portal",
+        "category": "Web Development",
+        "slug": "edulearn",
+        "summary": "Interactive LMS with video conferencing integration.",
+        "description": "A scalable learning management system designed for schools, supporting live classes, assignments, and student progress tracking.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222003/projects/p4.jpg",
+        "tech_stack": ["React", "Django", "WebRTC", "AWS"],
+        "tags": ["Education", "LMS", "Video"],
+        "live_url": "https://edulearn.zsyio.com",
+        "github_url": null,
+        "client": "Modern Academy",
+        "duration": "8 Months",
+        "completion_date": "2023-09-30",
+        "role": "Backend & DevOps"
+      },
+      {
+        "id": 5,
+        "title": "PropertyPulse",
+        "category": "Web Development",
+        "slug": "propertypulse",
+        "summary": "Real estate listing and management platform.",
+        "description": "A modern real-estate portal featuring interactive maps, virtual tours, and a robust CRM for agents.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222004/projects/p5.jpg",
+        "tech_stack": ["Vue.js", "Express", "MongoDB", "Google Maps API"],
+        "tags": ["Real Estate", "CRM", "Geography"],
+        "live_url": "https://propertypulse.com",
+        "github_url": "https://github.com/zsyio/propertypulse",
+        "client": "City Real Estate",
+        "duration": "5 Months",
+        "completion_date": "2024-03-05",
+        "role": "Frontend Architecture"
+      },
+      {
+        "id": 6,
+        "title": "CryptoVault Wallet",
+        "category": "Mobile App",
+        "slug": "cryptovault",
+        "summary": "Secure multi-chain cryptocurrency wallet.",
+        "description": "A highly secure mobile wallet supporting multiple blockchains, featuring biometric authentication and cold storage options.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222005/projects/p6.jpg",
+        "tech_stack": ["Flutter", "Blockchain SDK", "Rust"],
+        "tags": ["Cypto", "Blockchain", "Security"],
+        "live_url": null,
+        "github_url": "https://github.com/zsyio/cryptovault",
+        "client": "Decentralized Ventures",
+        "duration": "7 Months",
+        "completion_date": "2023-12-12",
+        "role": "Core Mobile Dev"
+      },
+      {
+        "id": 7,
+        "title": "LogiSync Pro",
+        "category": "Enterprise Software",
+        "slug": "logisync",
+        "summary": "Supply chain management and logistics optimization.",
+        "description": "Enterprise-grade logistics software for fleet tracking, route optimization, and inventory management.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222006/projects/p7.jpg",
+        "tech_stack": ["Angular", "Spring Boot", "MySQL", "Docker"],
+        "tags": ["Logistics", "Enterprise", "B2B"],
+        "live_url": "https://logisync.internal",
+        "github_url": null,
+        "client": "FastFreight Logistics",
+        "duration": "12 Months",
+        "completion_date": "2023-10-25",
+        "role": "System Integration"
+      },
+      {
+        "id": 8,
+        "title": "FoodieFlow",
+        "category": "Web Development",
+        "slug": "foodieflow",
+        "summary": "Restaurant management and contactless ordering system.",
+        "description": "Full-stack solution for restaurants including POS integration, QR-code ordering, and kitchen display systems.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222007/projects/p8.jpg",
+        "tech_stack": ["React", "FastAPI", "Redis", "Stripe"],
+        "tags": ["FoodTech", "QR-Ordering", "POS"],
+        "live_url": "https://foodflow.zsyio.com",
+        "github_url": "https://github.com/zsyio/foodieflow",
+        "client": "Gourmet Group",
+        "duration": "4 Months",
+        "completion_date": "2024-04-12",
+        "role": "Full Stack Partner"
+      },
+      {
+        "id": 9,
+        "title": "SocialScope Analytics",
+        "category": "Web Development",
+        "slug": "socialscope",
+        "summary": "Social media monitoring and sentiment analysis tool.",
+        "description": "Big data platform that aggregartes social mentions and uses NLP to determine brand sentiment in real-time.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222008/projects/p9.jpg",
+        "tech_stack": ["React", "Python", "Elasticsearch", "Kafka"],
+        "tags": ["Big Data", "NLP", "Marketing"],
+        "live_url": "https://scope.analytics.com",
+        "github_url": null,
+        "client": "AdGenius Agency",
+        "duration": "9 Months",
+        "completion_date": "2023-08-18",
+        "role": "Data Engineering"
+      },
+      {
+        "id": 10,
+        "title": "StreamLine HR",
+        "category": "Web Development",
+        "slug": "streamline-hr",
+        "summary": "Cloud-based HRMS for global remote teams.",
+        "description": "A modern HR platform handling payroll, recruitment, and employee performance for distributed startups.",
+        "image": "https://res.cloudinary.com/damlvqiwv/image/upload/v1738222009/projects/p10.jpg",
+        "tech_stack": ["Next.js", "tRPC", "Prisma", "AWS S3"],
+        "tags": ["HRTech", "SaaS", "Internal Tool"],
+        "live_url": "https://hr.streamline.io",
+        "github_url": "https://github.com/zsyio/streamline-hr",
+        "client": "SwiftHR",
+        "duration": "6 Months",
+        "completion_date": "2024-05-30",
+        "role": "Lead Product Dev"
+      }
+    ]
+  },
+  {
+    "SECTION": "2. SERVICES API (/api/services/)",
+    "ENDPOINT": "GET /api/services/",
+    "DATA_COUNT": 10,
+    "SAMPLE_DATA": [
+      {
+        "id": 1,
+        "title": "Web Designing",
+        "slug": "web-designing",
+        "icon": "Palette",
+        "description": "Creating breathtaking, user-centric visual experiences that align perfectly with your brand identity.",
+        "order": 1
+      },
+      {
+        "id": 2,
+        "title": "Web Development",
+        "slug": "web-development",
+        "icon": "Code2",
+        "description": "Building high-performance, responsive websites using the latest frameworks and best practices.",
+        "order": 2
+      },
+      {
+        "id": 3,
+        "title": "App Development",
+        "slug": "app-development",
+        "icon": "Smartphone",
+        "description": "Developing seamless mobile applications for iOS and Android with intuitive interfaces.",
+        "order": 3
+      },
+      {
+        "id": 4,
+        "title": "Deployment",
+        "slug": "deployment",
+        "icon": "Rocket",
+        "description": "Ensuring smooth and automated deployment pipelines for your applications to any cloud provider.",
+        "order": 4
+      },
+      {
+        "id": 5,
+        "title": "Logo Designing",
+        "slug": "logo-designing",
+        "icon": "Zap",
+        "description": "Crafting unique and memorable brand identities that stand out in the competitive market.",
+        "order": 5
+      },
+      {
+        "id": 6,
+        "title": "Data Solutions",
+        "slug": "data-solutions",
+        "icon": "BarChart3",
+        "description": "Actionable insights through data visualization, processing, and robust database architecture.",
+        "order": 6
+      },
+      {
+        "id": 7,
+        "title": "Cloud Hosting",
+        "slug": "hosting",
+        "icon": "Cloud",
+        "description": "Reliable and secure hosting solutions with 99.9% uptime guarantee for your web assets.",
+        "order": 7
+      },
+      {
+        "id": 8,
+        "title": "UI/UX Audit",
+        "slug": "ui-ux-audit",
+        "icon": "Search",
+        "description": "Comprehensive analysis of your product's usability and design to improve user retention.",
+        "order": 8
+      },
+      {
+        "id": 9,
+        "title": "SEO Optimization",
+        "slug": "seo",
+        "icon": "TrendingUp",
+        "description": "Improving your search engine rankings and organic traffic through proven strategies.",
+        "order": 9
+      },
+      {
+        "id": 10,
+        "title": "Maintenance & Support",
+        "slug": "maintenance",
+        "icon": "ShieldCheck",
+        "description": "Ongoing technical support and regular updates to keep your systems secure and optimized.",
+        "order": 10
+      }
+    ]
+  },
+  {
+    "SECTION": "3. TECHNOLOGIES API (/api/services/technologies/categorized/)",
+    "ENDPOINT": "GET /api/services/technologies/categorized/",
+    "DATA_COUNT": 4Categories,
+    "SAMPLE_DATA": [
+      {
+        "category": "Frontend",
+        "items": [
+          { "name": "React.js", "icon": "Atom", "color": "#61DAFB" },
+          { "name": "Next.js", "icon": "Layers", "color": "#FFFFFF" },
+          { "name": "Tailwind CSS", "icon": "Wind", "color": "#06B6D4" },
+          { "name": "TypeScript", "icon": "PenTool", "color": "#3178C6" },
+          { "name": "Vue.js", "icon": "Maximize", "color": "#4FC08D" }
+        ]
+      },
+      {
+        "category": "Backend",
+        "items": [
+          { "name": "Node.js", "icon": "Terminal", "color": "#339933" },
+          { "name": "Python/Django", "icon": "Settings", "color": "#3776AB" },
+          { "name": "FastAPI", "icon": "Zap", "color": "#05998B" },
+          { "name": "Rust", "icon": "Cpu", "color": "#DEA584" },
+          { "name": "Express", "icon": "Box", "color": "#000000" }
+        ]
+      },
+      {
+        "category": "Database",
+        "items": [
+          { "name": "PostgreSQL", "icon": "Database", "color": "#4169E1" },
+          { "name": "MongoDB", "icon": "Database", "color": "#47A248" },
+          { "name": "Redis", "icon": "HardDrive", "color": "#DC382D" },
+          { "name": "MySQL", "icon": "Database", "color": "#4479A1" },
+          { "name": "Firebase", "icon": "Flame", "color": "#FFCA28" }
+        ]
+      },
+      {
+        "category": "DevOps/Cloud",
+        "items": [
+          { "name": "AWS", "icon": "Cloud", "color": "#FF9900" },
+          { "name": "Docker", "icon": "Container", "color": "#2496ED" },
+          { "name": "Kubernetes", "icon": "Globe", "color": "#326CE5" },
+          { "name": "GitHub Actions", "icon": "GitBranch", "color": "#2088FF" },
+          { "name": "Cloudinary", "icon": "Image", "color": "#3448C5" }
+        ]
+      }
+    ]
+  },
+  {
+    "SECTION": "4. ESTIMATION API (/api/estimation/rules/)",
+    "ENDPOINT": "GET /api/estimation/rules/",
+    "SAMPLE_DATA": {
+      "web-designing": {
+        "pages": 1,
+        "iterations": 1,
+        "logo": false
+      },
+      "web-development": {
+        "pages": 1,
+        "features": {
+          "cms": false,
+          "auth": false,
+          "payments": false
+        }
+      },
+      "app-development": {
+        "screens": 5,
+        "platform": "single"
+      }
+    }
+  },
+  {
+    "SECTION": "5. CHATBOT API (/api/chatbot/)",
+    "ENDPOINT": "POST /api/chatbot/",
+    "PAYLOAD": { "message": "What services do you provide?" },
+    "SAMPLE_RESPONSE": {
+      "response": "At Zsyio, we offer a wide range of services including Web Design, Web Development, Mobile App Development, Cloud Deployment, and Data Solutions. You can explore more in our Services section!",
+      "status": "success"
+    }
+  },
+  {
+    "SECTION": "6. DELETE APIs",
+    "ENDPOINTS": [
+      {
+        "NAME": "Delete Service",
+        "ENDPOINT": "DELETE /api/services/services/delete/{id}/",
+        "ACTION": "Removes a service by its ID and logs to MongoDB."
+      },
+      {
+        "NAME": "Delete Technology",
+        "ENDPOINT": "DELETE /api/services/technologies/delete/{id}/",
+        "ACTION": "Removes a technology by ID and logs to MongoDB."
+      },
+      {
+        "NAME": "Delete Project",
+        "ENDPOINT": "DELETE /api/projects/delete/{id}/",
+        "ACTION": "Removes a project and its associated data."
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+Attempting to delete services...
+Checking for slug: 'web-designing'
+Service with slug 'web-designing' not found.
+Checking for slug: 'data-nalytics'
+Service with slug 'data-nalytics' not found.
+Checking for slug: 'data-analytics'
+Service with slug 'data-analytics' not found.
+Checking for slug: 'desigining'
+Service with slug 'desigining' not found.
+Checking for title: 'Web Designing'
+Service with title 'Web Designing' not found.
+Checking for title: 'Data Analytics'
+Service with title 'Data Analytics' not found.
+Process completed.
+
+Attempting to delete by ID...
+Checking for ID: 19
+Service with ID 19 not found.
+Checking for ID: 20
+Service with ID 20 not found.
+Checking for title: 'Web Designing'
+Found service by title: ID 21, Title 'Web Designing', Slug 'web-designing'
+Deleted successfully.
+Checking for title: 'Data Analytics'
+Service with title 'Data Analytics' not found.
+Process completed.

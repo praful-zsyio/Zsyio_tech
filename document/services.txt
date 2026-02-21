@@ -1,0 +1,246 @@
+SERVICES JSON DATA
+==================
+
+[
+    {
+        "slug": "web-designing",
+        "title": "Web Designing",
+        "description": "Beautiful, user-centric designs that captivate and engage your audience.",
+        "icon": "Palette",
+        "gradient": "from-[#97DFFC] to-[#8EB5F0]",
+        "base_rate": 8000,
+        "hourly_rate": 600
+    },
+    {
+        "slug": "web-development",
+        "title": "Web Development",
+        "description": "Robust, scalable web applications built with cutting-edge technologies.",
+        "icon": "Code",
+        "gradient": "from-[#8EB5F0] to-[#8AA0EA]",
+        "base_rate": 15000,
+        "hourly_rate": 1200
+    },
+    {
+        "slug": "deployment",
+        "title": "Web Deployment",
+        "description": "Seamless deployment solutions ensuring your application is always online.",
+        "icon": "Rocket",
+        "gradient": "from-[#8AA0EA] to-[#8895E7]",
+        "base_rate": 5000,
+        "hourly_rate": 400
+    },
+    {
+        "slug": "company-registration",
+        "title": "Company Registration",
+        "description": "End-to-end business incorporation, GST registration, and legal compliance setup to establish your corporate identity.",
+        "icon": "Building2",
+        "gradient": "from-[#8895E7] to-[#858AE3]",
+        "base_rate": 4000,
+        "hourly_rate": 350
+    },
+    {
+        "slug": "web-hosting",
+        "title": "Cloud Web Hosting",
+        "description": "High-performance AWS-powered hosting with free SSL, daily backups, and 99.9% uptime guarantee.",
+        "icon": "Globe",
+        "gradient": "from-[#858AE3] to-[#8AA0EA]",
+        "base_rate": 3000,
+        "hourly_rate": 250
+    },
+    {
+        "slug": "app-development",
+        "title": "App Development",
+        "description": "Native and cross-platform mobile applications that users love.",
+        "icon": "Smartphone",
+        "gradient": "from-[#8AA0EA] to-[#97DFFC]",
+        "base_rate": 25000,
+        "hourly_rate": 1500
+    },
+    {
+        "slug": "logo-designing",
+        "title": "Logo Designing",
+        "description": "Unique brand identities that make your business stand out.",
+        "icon": "Sparkles",
+        "gradient": "from-[#97DFFC] to-[#8895E7]",
+        "base_rate": 6000,
+        "hourly_rate": 500
+    },
+    {
+        "slug": "data-solutions",
+        "title": "Data Related Solutions",
+        "description": "Advanced analytics and data management to drive informed decisions.",
+        "icon": "BarChart",
+        "gradient": "from-[#8EB5F0] to-[#858AE3]",
+        "base_rate": 18000,
+        "hourly_rate": 1300
+    }
+]
+
+TECHNOLOGIES JSON DATA (Grouped by Category for Reference)
+==========================================================
+Note: For the API, you POST each technology individually with its category field.
+
+[
+    {
+        "category": "Frontend",
+        "items": [
+            {
+                "name": "React.js",
+                "icon": "Atom",
+                "color": "#61DAFB"
+            },
+            {
+                "name": "Vue.js",
+                "icon": "Box",
+                "color": "#42B883"
+            },
+            {
+                "name": "Angular",
+                "icon": "Shield",
+                "color": "#DD0031"
+            },
+            {
+                "name": "Next.js",
+                "icon": "Triangle",
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "category": "Backend",
+        "items": [
+            {
+                "name": "Node.js",
+                "icon": "Hexagon",
+                "color": "#339933"
+            },
+            {
+                "name": "Express.js",
+                "icon": "TrainTrack",
+                "color": "#000000"
+            },
+            {
+                "name": "Python",
+                "icon": "Code",
+                "color": "#3776AB"
+            },
+            {
+                "name": "Django",
+                "icon": "Guitar",
+                "color": "#092E20"
+            }
+        ]
+    },
+    {
+        "category": "Databases",
+        "items": [
+            {
+                "name": "MongoDB",
+                "icon": "Leaf",
+                "color": "#47A248"
+            },
+            {
+                "name": "PostgreSQL",
+                "icon": "Database",
+                "color": "#4169E1"
+            },
+            {
+                "name": "MySQL",
+                "icon": "Database",
+                "color": "#4479A1"
+            },
+            {
+                "name": "Redis",
+                "icon": "Database",
+                "color": "#DC382D"
+            }
+        ]
+    },
+    {
+        "category": "Cloud Solutions",
+        "items": [
+            {
+                "name": "AWS",
+                "icon": "Cloud",
+                "color": "#FF9900"
+            },
+            {
+                "name": "Azure",
+                "icon": "Cloud",
+                "color": "#0089D6"
+            },
+            {
+                "name": "Google Cloud",
+                "icon": "Cloud",
+                "color": "#4285F4"
+            },
+            {
+                "name": "Digital Ocean",
+                "icon": "Droplets",
+                "color": "#0080FF"
+            }
+        ]
+    }
+]
+
+EXAMPLE TECHNOLOGY POST PAYLOAD
+===============================
+{
+    "name": "React.js",
+    "icon": "Atom",
+    "color": "#61DAFB",
+    "category": "Frontend"
+}
+
+API ENDPOINTS
+=============
+
+Services:
+---------
+1. List All Services
+   Method: GET
+   URL: http://localhost:8000/api/services/services/
+
+2. Create New Service
+   Method: POST
+   URL: http://localhost:8000/api/services/services/
+   Body: JSON object with service fields (slug, title, description, icon, gradient, base_rate, hourly_rate)
+
+3. Get Service Details
+   Method: GET
+   URL: http://localhost:8000/api/services/services/{slug}/
+
+4. Update Service
+   Method: PUT / PATCH
+   URL: http://localhost:8000/api/services/services/{slug}/
+
+5. Delete Service
+   Method: DELETE
+   URL: http://localhost:8000/api/services/services/{slug}/
+
+Technologies:
+-------------
+1. List All Technologies
+   Method: GET
+   URL: http://localhost:8000/api/services/technologies/
+
+2. List Categorized Technologies (Grouped)
+   Method: GET
+   URL: http://localhost:8000/api/services/technologies/categorized/
+
+3. Create New Technology
+   Method: POST
+   URL: http://localhost:8000/api/services/technologies/
+   Body: JSON object with technology fields (name, icon, color, category)
+
+4. Get Technology Details
+   Method: GET
+   URL: http://localhost:8000/api/services/technologies/{id}/
+
+5. Update Technology
+   Method: PUT / PATCH
+   URL: http://localhost:8000/api/services/technologies/{id}/
+
+6. Delete Technology
+   Method: DELETE
+   URL: http://localhost:8000/api/services/technologies/{id}/

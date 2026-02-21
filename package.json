@@ -1,0 +1,26 @@
+{
+  "name": "zsyio_company",
+  "version": "1.0.0",
+  "description": "Zsyio is a modern full-stack web application designed to showcase projects, offer service estimations, and provide interactive AI chatbot features. It works with a robust Django backend and a dynamic React frontend powered by Vite.",
+  "main": "index.js",
+  "scripts": {
+    "start:backend": "cd backend && venv\\Scripts\\python manage.py runserver",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praful-zsyio/Zsyio_Company.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/praful-zsyio/Zsyio_Company/issues"
+  },
+  "homepage": "https://github.com/praful-zsyio/Zsyio_Company#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,0 +1,344 @@
+
+Here's sample JSON data for populating your `Project` model's JSONFields (`tech_stack`, `tags`, `features`). These are realistic examples for a full-stack developer's portfolio, matching your MERN/Django expertise.
+
+## Sample Project Data
+
+### Project 1: E-Commerce Platform (Shopkeeper)
+```python
+project1_data = {
+    "title": "Shopkeeper - Full E-Commerce Platform",
+    "category": "Web Application",
+    "summary": "Complete MERN stack e-commerce with role-based auth & payments",
+    "tech_stack": ["React", "Node.js", "Express", "MongoDB", "JWT", "Stripe", "TailwindCSS"],
+    "tags": ["Featured", "MERN", "E-Commerce", "Production"],
+    "features": [
+        "Role-based authentication (Admin/Customer/Seller)",
+        "Real-time inventory management",
+        "Stripe payment integration with webhooks",
+        "Advanced search with filters & pagination",
+        "Order tracking & analytics dashboard"
+    ],
+    "live_url": "https://shopkeeper.example.com",
+    "github_url": "https://github.com/yourusername/shopkeeper",
+    "client": "Local Business Owners",
+    "duration": "4 Months",
+    "role": "Full Stack Development & Deployment"
+}
+```
+
+### Project 2: Hospital Management System
+```python
+project2_data = {
+    "title": "MediCare - Hospital Management System",
+    "category": "Healthcare SaaS",
+    "summary": "Django-based hospital system with patient & doctor portals",
+    "tech_stack": ["Django", "PostgreSQL", "React", "Redis", "Docker", "Celery"],
+    "tags": ["Healthcare", "Django", "SaaS", "Scalable"],
+    "features": [
+        "Patient appointment scheduling & reminders",
+        "Doctor availability calendar with conflicts",
+        "Medical records with audit trails",
+        "Prescription management & pharmacy integration",
+        "Admin analytics & reporting dashboard"
+    ],
+    "github_url": "https://github.com/yourusername/medicare-hms",
+    "duration": "3 Months",
+    "role": "Backend Architecture & API Design"
+}
+```
+
+### Project 3: Portfolio Dashboard
+```python
+project3_data = {
+    "title": "DevPortfolio - Interactive Portfolio",
+    "category": "Personal Portfolio",
+    "summary": "Dynamic portfolio with project filtering & analytics",
+    "tech_stack": ["Next.js", "Prisma", "TypeScript", "Framer Motion", "Vercel"],
+    "tags": ["Portfolio", "Next.js", "Animations", "TypeScript"],
+    "features": [
+        "Interactive project filtering by tech stack",
+        "Smooth animations with Framer Motion",
+        "Admin CMS for project updates",
+        "Performance analytics & visitor tracking",
+        "Dark/Light theme toggle with persistence"
+    ],
+    "live_url": "https://portfolio.example.com",
+    "duration": "1 Month",
+    "role": "Full Stack Development"
+}
+```
+
+## Usage in Django Shell/Admin
+```python
+# In Django shell or management command
+from yourapp.models import Project
+import json
+
+# Create from dict
+project = Project.objects.create(**project1_data)
+
+# Or bulk create
+projects_data = [project1_data, project2_data, project3_data]
+for data in projects_data:
+    Project.objects.create(**data)
+
+# Query JSON fields
+featured_projects = Project.objects.filter(tags__contains=['Featured'])
+mern_projects = Project.objects.filter(tech_stack__contains=['React', 'Node.js'])
+```
+
+These examples align with your hospital/e-commerce projects and use realistic tech stacks for MERN/Django developers. The JSONFields store arrays as Python lists that Django serializes automatically.API List & Usage
+
+Base URL: http://localhost:8000
+
+1. Authentication
+-------------------------------------------------------
+POST /api/login/
+Description: Login - Obtain Access and Refresh JWT tokens.
+Allowed Emails: praful@zsyio.com, abhishek@zsyio.com, ashutosh@zsyio.com, 
+                ayan@zsyio.com, arpit@zsyio.com
+
+Payload Option 1 (using login_id):
+{
+  "login_id": "praful@zsyio.com",
+  "password": "your_password"
+}
+
+Payload Option 2 (using username):
+{
+  "username": "praful@zsyio.com",
+  "password": "your_password"
+}
+
+Response (Success):
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGc...",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGc...",
+  "user": {
+    "id": 1,
+    "username": "praful@zsyio.com",
+    "email": "praful@zsyio.com",
+    "first_name": "Praful",
+    "last_name": "Sonwane",
+    "full_name": "Praful Sonwane"
+  }
+}
+
+Note: If first_name or last_name are not set in the database, they will be 
+      empty strings. The full_name will be constructed from first_name and 
+      last_name, or fallback to username if both are empty.
+
+Response (Error - Invalid Credentials):
+{
+  "detail": "Invalid credentials. Please check your email and password."
+}
+
+Response (Error - Unauthorized Email):
+{
+  "detail": "This email is not authorized to log in."
+}
+
+POST /api/login/refresh/
+Description: Refresh Access token using Refresh token.
+IMPORTANT: This endpoint does NOT require an Authorization header.
+           Only send the refresh token in the request body.
+
+Headers:
+Content-Type: application/json
+
+Payload (JSON):
+{
+  "refresh": "YOUR_REFRESH_TOKEN"
+}
+
+Response (Success):
+{
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+}
+
+Response (Error - Missing Token):
+{
+  "detail": "Refresh token is required.",
+  "error": "Please provide a valid refresh token in the request body.",
+  "example": {
+    "refresh": "your_refresh_token_here"
+  }
+}
+
+Response (Error - Invalid/Expired Token):
+{
+  "detail": "Invalid or expired refresh token.",
+  "error": "The refresh token is not valid or has expired. Please login again."
+}
+
+Troubleshooting:
+- If you get "Invalid character in header" error in Postman:
+  1. Go to the "Authorization" tab and select "No Auth"
+  2. Remove any Authorization header from the "Headers" tab
+  3. Only send the refresh token in the Body (raw JSON)
+- The refresh token should be the exact string from the login response
+- Do not add "Bearer " prefix to the refresh token
+
+Note: Old endpoints /api/token/ and /api/token/refresh/ are still available 
+      for backward compatibility.
+
+
+2. Projects
+-------------------------------------------------------
+GET /api/projects/
+Description: List all projects.
+
+POST /api/projects/
+Description: Create a new project (Requires Auth/Admin).
+Payload (JSON):
+{
+  "title": "E-Commerce Platform",
+  "category": "Web Development",
+  "summary": "A full-stack e-commerce solution.",
+  "description": "Built using React and Django, features cart, payments, etc.",
+  "image": "https://example.com/image.jpg",
+  "tech_stack": ["React", "Django", "PostgreSQL"],
+  "tags": ["Featured", "New"],
+  "live_url": "https://myshop.com"
+}
+
+GET /api/projects/:id/
+Description: Get project details. Example: /api/projects/1/
+
+DELETE /api/projects/delete/<project_id>/
+Description: Delete a project (Requires Auth/Admin).
+Method: DELETE (Do NOT use GET)
+Example: /api/projects/delete/1/
+
+
+3. Services
+-------------------------------------------------------
+GET /api/services/services/
+Description: List all services.
+
+POST /api/services/services/
+Description: Create a service (Admin).
+Payload (JSON):
+{
+  "slug": "web-development",
+  "title": "Web Development",
+  "description": "Full stack web development services.",
+  "icon": "code",
+  "base_rate": "50000.00",
+  "hourly_rate": "2000.00",
+  "gradient": "from-[#97DFFC] to-[#8EB5F0]"
+}
+
+GET /api/services/technologies/
+Description: List all technologies.
+
+POST /api/services/technologies/
+Description: Add a technology (Admin).
+Payload (JSON):
+{
+  "name": "React",
+  "category": "Frontend",
+  "icon": "react",
+  "color": "#61DAFB"
+}
+
+DELETE /api/services/delete/<id>/
+Description: Delete a service by ID (Admin).
+Example 1: /api/services/delete/1/
+Example 2: /api/services/delete/2/
+
+DELETE /api/services/technologies/delete/<id>/
+Description: Delete a technology by ID (Admin).
+Example: /api/services/technologies/delete/1/
+
+
+4. Cart
+-------------------------------------------------------
+GET /api/cart/
+Description: Get current user's cart (Requires Auth).
+
+POST /api/cart/add_item/
+Description: Add service to cart (Requires Auth).
+Payload (JSON):
+{
+  "service_slug": "web-development",
+  "quantity": 1
+}
+
+
+5. Estimation
+-------------------------------------------------------
+GET /api/estimation/rules/
+Description: Get estimation rules and default values.
+
+POST /api/estimation/calculate/
+Description: Calculate service cost (Requires Auth).
+Payload (JSON):
+{
+  "serviceId": "web-designing",
+  "params": {
+    "pages": 5,
+    "iterations": 2,
+    "logo": true
+  }
+}
+
+
+6. Chatbot
+-------------------------------------------------------
+POST /api/chatbot/
+Description: Send message to AI chatbot.
+Payload (JSON):
+{
+  "message": "How much does a website cost?"
+}
+
+
+7. Contact
+-------------------------------------------------------
+POST /api/contact/
+Description: Submit contact form.
+Payload (JSON):
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "9876543210",
+  "message": "I am interested in your services."
+}
+
+
+8. Configuration
+-------------------------------------------------------
+GET /api/config/
+Description: Get site configuration (Theme colors, Site name).
+
+POST /api/config/privacy-consent/
+Description: Record user acceptance or rejection of Privacy Policy.
+Payload (JSON):
+{
+  "status": "accepted" // or "rejected"
+}
+Response (Success):
+{
+  "status": "accepted",
+  "ip_address": "127.0.0.1",
+  "timestamp": "2023-10-27T10:00:00Z"
+}
+
+
+
+9. About
+-------------------------------------------------------
+POST /api/about/
+Description: Create a new about page (Admin).
+Payload (JSON):
+{
+  "title": "About Us",
+  "description": "We are a team of passionate developers.",
+  "image": "https://example.com/image.jpg",
+  "tech_stack": ["React", "Django", "PostgreSQL"],
+  "tags": ["Featured", "New"],
+  "live_url": "https://myshop.com"
+}
+GET /api/about/
+Description: Get About page data.

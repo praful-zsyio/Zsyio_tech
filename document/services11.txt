@@ -1,0 +1,25 @@
+Services List
+=============
+Web Hosting
+Data Analytics
+
+Technologies List
+=================
+React
+Next.js
+Tailwind CSS
+TypeScript
+Django
+Node.js
+Python
+FastAPI
+PostgreSQL
+MongoDB
+Redis
+AWS
+Docker
+Kubernetes
+Git
+GitHub Actions
+React Native
+Flutter

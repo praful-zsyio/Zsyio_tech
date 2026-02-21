@@ -1,0 +1,142 @@
+company-website/
+│
+├── backend/
+│   │
+│   ├── config/                         # Django Project Config
+│   │   ├── __init__.py
+│   │   ├── settings.py                 # Supabase PostgreSQL settings
+│   │   ├── urls.py                     # Main API routing
+│   │   ├── asgi.py
+│   │   └── wsgi.py
+│   │
+│   ├── apps/                           # Django Apps (API Modules)
+│   │   │
+│   │   ├── projects/create all apps sample data to run json data to store api.txt in document folder sa
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── serializers.py
+│   │   │   ├── views.py
+│   │   │   ├── urls.py
+│   │   │   └── services.py
+│   │   │
+│   │   ├── services/
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── serializers.py
+│   │   │   ├── views.py
+│   │   │   └── urls.py
+│   │   │
+│   │   ├── about/
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── serializers.py
+│   │   │   ├── views.py
+│   │   │   └── urls.py
+│   │   │
+│   │   ├── contact/
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── serializers.py
+│   │   │   ├── views.py
+│   │   │   └── urls.py
+│   │   │
+│   │   ├── estimation/
+│   │   │   ├── __init__.py
+│   │   │   ├── apps.py
+│   │   │   ├── services.py
+│   │   │   ├── views.py
+│   │   │   └── urls.py
+│   │   │
+│   │   ├── config_api/
+│   │   │   ├── __init__.py
+│   │   │   ├── views.py
+│   │   │   └── urls.py
+│   │   │
+│   │   ├── cart/
+│   │   │   ├── __init__.py
+│   │   │   ├── models.py
+│   │   │   ├── serializers.py
+│   │   │   ├── views.py
+│   │   │   └── urls.py
+│   │   │
+│   │   └── chatbot/
+│   │       ├── __init__.py
+│   │       ├── models.py
+│   │       ├── serializers.py
+│   │       ├── services.py
+│   │       ├── views.py
+│   │       └── urls.py
+│   │
+│   ├── core/                           # Shared Utilities
+│   │   ├── __init__.py
+│   │   ├── responses.py
+│   │   ├── permissions.py
+│   │   └── utils.py
+│   │
+│   ├── manage.py
+│   ├── requirements.txt
+│   └── .env                            # Supabase credentials
+│
+├── frontend/
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── assets/
+│   │   │   ├── logo.png
+│   │   │   ├── mobileFallback.png
+│   │   │   ├── Zsyio1.mp4
+│   │   │   └── Zsyio3.mp4
+│   │   │
+│   │   ├── api/                        # API Layer
+│   │   │   ├── axios.js
+│   │   │   ├── projects.api.js
+│   │   │   ├── services.api.js
+│   │   │   ├── about.api.js
+│   │   │   ├── contact.api.js
+│   │   │   ├── estimation.api.js
+│   │   │   ├── config.api.js
+│   │   │   ├── cart.api.js
+│   │   │   └── chatbot.api.js
+│   │   │
+│   │   ├── components/
+│   │   │   ├── about/
+│   │   │   ├── home/
+│   │   │   ├── services/
+│   │   │   ├── navbar/
+│   │   │   ├── footer/
+│   │   │   ├── BackToTopButton.jsx
+│   │   │   ├── Form.jsx
+│   │   │   ├── ScrollToTop.jsx
+│   │   │   └── Chatbot.jsx
+│   │   │
+│   │   ├── context/
+│   │   │   ├── ThemeContext.jsx
+│   │   │   └── CartContext.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── AboutUs.jsx
+│   │   │   ├── ServicesPage.jsx
+│   │   │   ├── ProjectsPage.jsx
+│   │   │   └── ProjectDetailPage.jsx
+│   │   │
+│   │   ├── utils/
+│   │   │   └── cart.js
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   │
+│   ├── .env
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md

@@ -1,0 +1,8 @@
+Starting user creation process...
+User 'praful@zsyio.com' already exists. Skipping.
+User 'abhishek@zsyio.com' already exists. Skipping.
+User 'ashutosh@zsyio.com' already exists. Skipping.
+User 'ayan@zsyio.com' already exists. Skipping.
+User 'arpit@zsyio.com' already exists. Skipping.
+
+Process completed.

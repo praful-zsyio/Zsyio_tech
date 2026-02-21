@@ -1,0 +1,104 @@
+# Project Documentation
+
+## 1. Project Overview
+
+### Directory Structure
+The project follows a standard Django backend and React (Vite) frontend structure.
+
+- **Backend**: Django Project (`company-website`)
+    - **Apps**:
+        - `projects`: Manages project portfolio data.
+        - `services`: Handles services and technology listings.
+        - `about`: About Us information.
+        - `contact`: Contact form submissions.
+        - `estimation`: Project cost estimation logic.
+        - `config_api`: Site configuration.
+        - `cart`: Shopping cart functionality.
+        - `chatbot`: Chatbot integration.
+    - **Core**: Shared utilities, permissions, and responses.
+
+- **Frontend**: React (Vite)
+    - **API Layer**: Centralized API calls in `src/api/`.
+    - **Components**: Reusable UI components grouped by feature.
+    - **Pages**: Main route views (Home, About, Services, Projects, etc.).
+
+## 2. API Documentation
+
+### Base URL: `/api/`
+
+### Authentication
+- `POST /api/token/` - Obtain Token pair (Login)
+- `POST /api/token/refresh/` - Refresh Token
+
+### Projects
+- `GET /api/projects/` - List all projects
+- `POST /api/projects/` - Create a new project
+- `GET /api/projects/{id}/` - Retrieve project details
+- `PUT /api/projects/{id}/` - Update project (full)
+- `PATCH /api/projects/{id}/` - Update project (partial)
+- `DELETE /api/projects/{id}/` - Delete project
+
+### Services
+- `GET /api/services/services/` - List Services
+- `POST /api/services/services/` - Create Service
+- `GET /api/services/services/{id}/` - Retrieve Service
+- `PUT /api/services/services/{id}/` - Update Service
+- `PATCH /api/services/services/{id}/` - Update Service (partial)
+- `DELETE /api/services/services/{id}/` - Delete Service
+- `GET /api/services/technologies/` - List Technologies
+- `POST /api/services/technologies/` - Create Technology
+- `GET /api/services/technologies/{id}/` - Retrieve Technology
+- `PUT /api/services/technologies/{id}/` - Update Technology
+- `PATCH /api/services/technologies/{id}/` - Update Technology (partial)
+- `DELETE /api/services/technologies/{id}/` - Delete Technology
+
+### Cart
+- `GET /api/cart/` - List/Retrieve Cart
+- `POST /api/cart/` - Create/Update Cart
+- `GET /api/cart/{id}/` - Retrieve Cart Item
+- `PUT /api/cart/{id}/` - Update Cart Item
+- `PATCH /api/cart/{id}/` - Update Cart Item (partial)
+- `DELETE /api/cart/{id}/` - Delete Cart Item
+
+### About Us
+- `GET /api/about/` - List About Info
+- `POST /api/about/` - Create About Info
+- `GET /api/about/{id}/` - Retrieve About Info
+- `PUT /api/about/{id}/` - Update About Info
+- `PATCH /api/about/{id}/` - Update About Info (partial)
+- `DELETE /api/about/{id}/` - Delete About Info
+
+### Estimation
+- `POST /api/estimation/calculate/` - Calculate Estimate
+
+### Chatbot
+- `POST /api/chatbot/` - Send Message
+
+### Configuration
+- `GET /api/config/` - Get Site Config
+
+### Contact
+- `POST /api/contact/` - Submit Contact Form
+
+## 3. Project Reports & Data Schema
+
+### Project Model (`apps.projects.models`)
+The system maintains a detailed registry of projects with the following data points available for reporting and display:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| **Title** | String | Name of the project |
+| **Category** | String | Project category (e.g., Web Dev, Mobile App) |
+| **Summary** | Text | Brief overview of the project |
+| **Description** | Text | Detailed project description |
+| **Image** | URL | Link to project cover image |
+| **Tech Stack** | JSON/List | List of technologies used (e.g., ["React", "Django"]) |
+| **Tags** | JSON/List | Associated tags for filtering |
+| **Live URL** | URL | Link to the live project (optional) |
+| **Created At** | DateTime | Timestamp of creation |
+
+### Reporting Capabilities
+Reports can be generated based on:
+- **Project Categories**: Grouping projects by their type.
+- **Technology Usage**: Analyzing frequently used tech stacks.
+- **Timeline**: Listing projects by creation date.

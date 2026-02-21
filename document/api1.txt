@@ -1,0 +1,135 @@
+This file contains sample JSON data for testing the Zsyio API endpoints.
+
+--------------------------------------------------------------------------------
+1. AUTHENTICATION
+--------------------------------------------------------------------------------
+Endpoint: POST /api/token/
+Description: Obtain Access and Refresh Token
+JSON Body:
+{
+  "username": "admin",
+  "password": "your_password_here"
+}
+
+Endpoint: POST /api/token/refresh/
+Description: Refresh Access Token
+JSON Body:
+{
+  "refresh": "your_refresh_token_here"
+}
+
+--------------------------------------------------------------------------------
+2. PROJECTS
+--------------------------------------------------------------------------------
+Endpoint: POST /api/projects/
+Description: Create a new project
+JSON Body:
+{
+  "title": "E-Commerce Platform",
+  "category": "Web Development",
+  "summary": "A full-featured online store.",
+  "description": "Built a scalable e-commerce platform with React and Django, featuring cart management, payment integration, and admin dashboard.",
+  "image": "https://example.com/images/ecommerce.jpg",
+  "tech_stack": ["React", "Django", "PostgreSQL", "Redis"],
+  "tags": ["Full Stack", "E-Commerce", "API"],
+  "live_url": "https://shop.example.com"
+}
+
+--------------------------------------------------------------------------------
+3. SERVICES & TECHNOLOGIES
+--------------------------------------------------------------------------------
+Endpoint: POST /api/services/services/
+Description: Create a new service
+JSON Body:
+{
+  "slug": "mobile-development",
+  "title": "Mobile App Development",
+  "description": "Custom mobile applications for iOS and Android.",
+  "icon": "smartphone",
+  "base_rate": "5000.00",
+  "hourly_rate": "100.00",
+  "gradient": "from-purple-500 to-pink-500"
+}
+
+Endpoint: POST /api/services/technologies/
+Description: Add a new technology
+JSON Body:
+{
+  "name": "Flutter",
+  "category": "Frontend",
+  "icon": "flutter-icon",
+  "color": "#02569B"
+}
+
+--------------------------------------------------------------------------------
+4. CART
+--------------------------------------------------------------------------------
+Endpoint: POST /api/cart/
+Description: Create/Add to Cart (Assuming view allows creation or item addition)
+Note: Logic depends on ViewSet implementation. If standard ModelViewSet for CartModel:
+JSON Body:
+{
+  "user": 1
+}
+
+Endpoint: POST /api/cart/items/ (Hypothetical: if items are sub-route or separate)
+Description: If CartItem has its own endpoint or nested. 
+(Based on standard DRF, if you just have CartViewSet, you might need to check how items are added. Often it's a custom action or nested serializer).
+Sample for an Item (if applicable):
+{
+  "cart": 1,
+  "service": "mobile-development",
+  "quantity": 2
+}
+
+--------------------------------------------------------------------------------
+5. ESTIMATION
+--------------------------------------------------------------------------------
+Endpoint: POST /api/estimation/calculate/
+Description: Calculate project cost
+JSON Body:
+{
+  "serviceId": "web-development",
+  "params": {
+    "pages": 10,
+    "features": {
+      "cms": true,
+      "auth": true,
+      "payments": true
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+6. CHATBOT
+--------------------------------------------------------------------------------
+Endpoint: POST /api/chatbot/
+Description: Send message to AI Chatbot
+JSON Body:
+{
+  "message": "Can you help me estimate a mobile app project?"
+}
+
+--------------------------------------------------------------------------------
+7. CONTACT
+--------------------------------------------------------------------------------
+Endpoint: POST /api/contact/
+Description: Submit Contact Form
+JSON Body:
+{
+  "name": "Jane User",
+  "email": "jane@example.com",
+  "phone": "+1234567890",
+  "message": "I am interested in your services."
+}
+
+--------------------------------------------------------------------------------
+8. ABOUT
+--------------------------------------------------------------------------------
+Endpoint: POST /api/about/
+Description: Create About Entry
+Note: This endpoint uses 'multipart/form-data' because of the 'image' field.
+JSON key-value pairs representation:
+title: "Our Mission"
+description: "To provide high-quality software solutions."
+image: (File Upload)

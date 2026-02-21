@@ -1,0 +1,121 @@
+.privacy-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--surface-card);
+    /* Assuming theme variable */
+    color: var(--text-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    color: hsl(var(--text));
+    background-color: hsl(var(--base));
+}
+
+.privacy-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: hsl(var(--blue));
+}
+
+.last-updated {
+    font-style: italic;
+    color: hsl(var(--subtext0));
+    margin-bottom: 30px;
+}
+
+.policy-content section {
+    margin-bottom: 30px;
+}
+
+.policy-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: hsl(var(--text));
+}
+
+.policy-content p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: hsl(var(--subtext1));
+}
+
+.consent-actions {
+    margin-top: 40px;
+    padding: 20px;
+    background: hsl(var(--mantle));
+    border-radius: 8px;
+    text-align: center;
+}
+
+.consent-actions p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: hsl(var(--text));
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-accept {
+    background-color: hsl(var(--green));
+    color: white;
+}
+
+.btn-accept:hover {
+    filter: brightness(1.1);
+}
+
+.btn-accept:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-reject {
+    background-color: hsl(var(--red));
+    color: white;
+}
+
+.btn-reject:hover {
+    filter: brightness(1.1);
+}
+
+.btn-reject:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-reset {
+    background-color: hsl(var(--blue));
+    color: white;
+    margin-top: 20px;
+}
+
+.consent-message {
+    text-align: center;
+    padding: 40px;
+}
+
+.consent-message p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: hsl(var(--text));
+}
+
+.error-message {
+    color: hsl(var(--red));
+    margin-top: 10px;
+}

@@ -1,0 +1,75 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	new file:   .env
+#	modified:   .gitignore
+#	modified:   README.md
+#	new file:   build_log.txt
+#	modified:   eslint.config.js
+#	modified:   index.html
+#	modified:   package-lock.json
+#	modified:   package.json
+#	modified:   public/robots.txt
+#	modified:   src/App.jsx
+#	modified:   src/components/BackToTopButton.jsx
+#	new file:   src/components/Chatbot.jsx
+#	modified:   src/components/Form.jsx
+#	modified:   src/components/ScrollToTop.jsx
+#	modified:   src/components/about/AboutHero.jsx
+#	modified:   src/components/about/CtaSection.jsx
+#	modified:   src/components/about/CultureVideoSection.jsx
+#	modified:   src/components/about/IndustriesSection.jsx
+#	modified:   src/components/about/JourneySection.jsx
+#	modified:   src/components/about/MissionVisionSection.jsx
+#	modified:   src/components/about/ProcessSection.jsx
+#	modified:   src/components/about/QualitySecuritySection.jsx
+#	modified:   src/components/about/TechStackSection.jsx
+#	modified:   src/components/about/TestimonialsSection.jsx
+#	modified:   src/components/about/ValuesSection.jsx
+#	modified:   src/components/about/WhyPartnerSection.jsx
+#	modified:   src/components/footer/Footer.jsx
+#	modified:   src/components/home/AboutSection.jsx
+#	modified:   src/components/home/HeroSection.jsx
+#	modified:   src/components/home/Services.jsx
+#	modified:   src/components/home/VideoComponent.jsx
+#	modified:   src/components/home/homeProjects/ProjectCard.jsx
+#	modified:   src/components/home/homeProjects/ProjectsGlimpse.jsx
+#	modified:   src/components/navbar/Navbar.jsx
+#	modified:   src/components/services/EstimationSection.jsx
+#	modified:   src/components/services/ServicesGrid.jsx
+#	modified:   src/components/services/TechnologiesGrid.jsx
+#	new file:   src/context/AuthContext.jsx
+#	modified:   src/context/ThemeContext.jsx
+#	modified:   src/data/aboutData/aboutIndustries.js
+#	modified:   src/data/aboutData/aboutProcess.js
+#	modified:   src/data/aboutData/aboutStats.js
+#	modified:   src/data/aboutData/aboutTechStack.js
+#	modified:   src/data/aboutData/aboutTestimonials.js
+#	modified:   src/data/aboutData/aboutValues.js
+#	modified:   src/data/aboutData/aboutWhyPartner.js
+#	modified:   src/data/colors.js
+#	modified:   src/data/estimationRules.js
+#	modified:   src/data/navLinks.js
+#	modified:   src/data/projectsData.js
+#	modified:   src/data/reportWebVitals.js
+#	modified:   src/data/servicesData.js
+#	modified:   src/data/theme.js
+#	modified:   src/data/useScrollPosition.js
+#	modified:   src/index.css
+#	modified:   src/main.jsx
+#	modified:   src/pages/AboutUs.jsx
+#	new file:   src/pages/ContactPage.jsx
+#	modified:   src/pages/HomePage.jsx
+#	new file:   src/pages/LoginPage.jsx
+#	modified:   src/pages/ProjectDetailPage.jsx
+#	modified:   src/pages/ProjectsPage.jsx
+#	modified:   src/pages/ServicesPage.jsx
+#	new file:   src/services/api.js
+#	modified:   src/utils/cart.js
+#	modified:   vite.config.js
+#

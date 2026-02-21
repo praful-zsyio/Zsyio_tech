@@ -1,0 +1,36 @@
+GET /api/config/ - Get Site Config
+POST /api/token/ - Obtain Token
+POST /api/token/refresh/ - Refresh Token
+POST /api/chatbot/ - Chat with Bot
+POST /api/contact/ - Submit Contact Form
+POST /api/estimation/calculate/ - Calculate Estimate
+
+GET /api/projects/ - List Projects
+POST /api/projects/ - Create Project
+GET /api/projects/{id}/ - Retrieve Project
+PUT /api/projects/{id}/ - Update Project
+DELETE /api/projects/{id}/ - Delete Project
+
+GET /api/services/services/ - List Services
+POST /api/services/services/ - Create Service
+GET /api/services/services/{id}/ - Retrieve Service
+PUT /api/services/services/{id}/ - Update Service
+DELETE /api/services/services/{id}/ - Delete Service
+
+GET /api/services/technologies/ - List Technologies
+POST /api/services/technologies/ - Create Technology
+GET /api/services/technologies/{id}/ - Retrieve Technology
+PUT /api/services/technologies/{id}/ - Update Technology
+DELETE /api/services/technologies/{id}/ - Delete Technology
+
+GET /api/cart/ - List Cart Items
+POST /api/cart/ - Create Cart Item
+GET /api/cart/{id}/ - Retrieve Cart Item
+PUT /api/cart/{id}/ - Update Cart Item
+DELETE /api/cart/{id}/ - Delete Cart Item
+
+GET /api/about/ - List About Entries
+POST /api/about/ - Create About Entry
+GET /api/about/{id}/ - Retrieve About Entry
+PUT /api/about/{id}/ - Update About Entry
+DELETE /api/about/{id}/ - Delete About Entry
