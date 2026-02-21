@@ -4,24 +4,12 @@ from rest_framework_simplejwt.serializers import TokenRefreshSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import AllowedEmailTokenObtainPairSerializer
-from apps.utils.mongo import mongo_log
-
 class CustomTokenObtainPairView(TokenObtainPairView):
     """JWT token view that only allows specific email addresses to obtain a token."""
     serializer_class = AllowedEmailTokenObtainPairSerializer
 
     def post(self, request, *args, **kwargs):
-        response = super().post(request, *args, **kwargs)
-        
-        login_id = request.data.get('login_id') or request.data.get('username') or request.data.get('email')
-        mongo_log('login_activity', {
-            'action': 'login',
-            'login_id': login_id,
-            'status': 'success' if response.status_code == 200 else 'failed',
-            'status_code': response.status_code,
-        })
-
-        return response
+        return super().post(request, *args, **kwargs)
 
 class CustomTokenRefreshView(TokenRefreshView):
     """Custom token refresh view with improved error handling."""

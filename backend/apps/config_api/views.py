@@ -1,14 +1,8 @@
 from rest_framework.views import APIView
-from django.conf import settings
 from rest_framework.response import Response
-from .serializers import SiteConfigSerializer, PrivacyConsentSerializer
-from .models import SiteConfig, PrivacyConsent
 from rest_framework import status
-from apps.utils.mongo import get_mongo_db, mongo_log
-from bson.objectid import ObjectId
-import datetime
+from .models import SiteConfig, PrivacyConsent
 
-# Default Palette (Fallback)
 DEFAULT_PALETTE = {
   "light": {
       "rosewater": "11 59% 67%",
@@ -70,25 +64,21 @@ DEFAULT_PALETTE = {
 
 class ConfigView(APIView):
     def get(self, request):
-        db = get_mongo_db()
-        config = None
-        if db is not None:
-            config = db['site_config'].find_one()
+        config_obj = SiteConfig.objects.first()
+        if not config_obj:
+            config_obj = SiteConfig.objects.create(
+                site_name="Zsyio",
+                site_tagline="Innovative Digital Solutions",
+                contact_email="contact@zsyio.com"
+            )
         
-        if not config:
-            config = {
-                "site_name": "Zsyio",
-                "site_tagline": "Innovative Digital Solutions",
-                "contact_email": "contact@zsyio.com"
-            }
-            if db is not None:
-                db['site_config'].insert_one(config)
-        
-        if '_id' in config:
-            config['id'] = str(config.pop('_id'))
-        
-        config['theme_colors'] = DEFAULT_PALETTE
-        return Response(config)
+        return Response({
+            "id": config_obj.id,
+            "site_name": config_obj.site_name,
+            "site_tagline": config_obj.site_tagline,
+            "contact_email": config_obj.contact_email,
+            "theme_colors": DEFAULT_PALETTE
+        })
 
 class GlobalDataView(APIView):
     def get(self, request):
@@ -140,15 +130,13 @@ class PrivacyConsentView(APIView):
         if status_val not in ['accepted', 'rejected']:
             return Response({'error': 'Invalid status.'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Get IP address
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
             
-        mongo_log('privacy_consents', {
-            'ip_address': ip,
-            'status': status_val,
-            'user_id': str(request.user.id) if request.user.is_authenticated else 'anonymous',
-            'timestamp': datetime.datetime.utcnow()
-        })
+        PrivacyConsent.objects.create(
+            ip_address=ip,
+            status=status_val,
+            user=request.user if request.user.is_authenticated else None
+        )
 
         return Response({'status': 'saved', 'ip': ip}, status=status.HTTP_201_CREATED)
