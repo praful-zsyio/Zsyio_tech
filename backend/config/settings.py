@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('Django_Key')
+SECRET_KEY = os.getenv('SECRET_KEY') or os.getenv('Django_Key') or 'django-insecure-fallback-key-for-local-dev-only'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -102,29 +102,32 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third party apps
     'rest_framework',
     'corsheaders',
-    'apps.about',
-    'apps.cart',
-    'apps.chatbot',
-    'apps.config_api',
-    'apps.estimation',
+    'rest_framework_simplejwt',
+    'cloudinary',
+    'cloudinary_storage',
+    # Local apps
     'apps.projects',
     'apps.services',
-    'apps.authentication',
+    'apps.about',
     'apps.contact',
+    'apps.config_api',
+    'apps.estimation',
+    'apps.chatbot',
+    'apps.authentication',
+    'apps.cart',
     'apps.cloudinary_upload',
     'apps.theme',
     'apps.colors',
-    'cloudinary_storage',
-    'cloudinary',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -176,14 +179,13 @@ MIGRATION_MODULES = {
 
 # Database configuration
 # This project is configured to use ONLY MongoDB.
+# We use a custom 'mongodb_mock' engine to satisfy Django's requirements
+# while performing actual data operations via pymongo in views.
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'mongodb_mock',
         'NAME': 'zsyio_db',
         'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': os.getenv('MONGO_URI'),
-        }
     }
 }
 
@@ -191,15 +193,19 @@ import pymongo
 MONGO_URI = os.getenv("MONGO_URI")
 if MONGO_URI:
     try:
-        MONGO_CLIENT = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=2000, tlsAllowInvalidCertificates=True)
-        # Ping to check connection
+        MONGO_CLIENT = pymongo.MongoClient(
+            MONGO_URI, 
+            serverSelectionTimeoutMS=5000, 
+            tlsAllowInvalidCertificates=True
+        )
+        # Verify connection
         MONGO_CLIENT.admin.command('ismaster')
         print("MongoDB Connected Successfully")
     except Exception as e:
         print(f"MongoDB Connection Failed: {e}")
         MONGO_CLIENT = None
 else:
-    print("MONGO_URI not set")
+    print("MONGO_URI not set (skipping MongoDB connection)")
     MONGO_CLIENT = None
 
 
