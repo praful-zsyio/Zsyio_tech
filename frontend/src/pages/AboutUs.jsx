@@ -121,18 +121,18 @@ const AboutUs = () => {
         </div>
       ) : (
         <div className="opacity-100 transition-opacity duration-700">
-          <AboutHero data={aboutData} />
-          <MissionVisionSection data={aboutData} />
-          <JourneySection data={aboutData} />
-          <ValuesSection data={aboutData} />
-          <WhyPartnerSection data={aboutData} />
-          <ProcessSection data={aboutData} />
-          <CultureVideoSection data={aboutData} />
-          <TestimonialsSection data={aboutData} />
-          <QualitySecuritySection data={aboutData} />
-          <TechStackSection data={aboutData} />
-          <IndustriesSection data={aboutData} />
-          <CtaSection data={aboutData} />
+          <div id="hero"><AboutHero data={aboutData} /></div>
+          <div id="mission"><MissionVisionSection data={aboutData} /></div>
+          <div id="journey"><JourneySection data={aboutData} /></div>
+          <div id="values"><ValuesSection data={aboutData} /></div>
+          <div id="why-partner"><WhyPartnerSection data={aboutData} /></div>
+          <div id="process"><ProcessSection data={aboutData} /></div>
+          <div id="culture"><CultureVideoSection data={aboutData} /></div>
+          <div id="testimonials"><TestimonialsSection data={aboutData} /></div>
+          <div id="security"><QualitySecuritySection data={aboutData} /></div>
+          <div id="tech-stack"><TechStackSection data={aboutData} /></div>
+          <div id="industries"><IndustriesSection data={aboutData} /></div>
+          <div id="cta"><CtaSection data={aboutData} /></div>
         </div>
       )}
     </div>

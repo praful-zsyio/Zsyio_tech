@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import DisclaimerPage from './pages/DisclaimerPage'
 import TrademarksPage from './pages/TrademarksPage'
+import LoginPage from './pages/LoginPage'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
 import EstimateSection from './components/services/EstimationSection'
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
           <Route path='/disclaimer' element={<DisclaimerPage />} />
           <Route path='/trademarks' element={<TrademarksPage />} />
+          <Route path='/login' element={<LoginPage />} />
           <Route path="/estimate/:serviceId" element={<EstimateSection />} />
         </Routes>
       </main>

@@ -94,10 +94,12 @@ class GlobalDataView(APIView):
     def get(self, request):
         data = {
             "navLinks": [
-                {"title": "Home", "path": "/"},
-                {"title": "About Us", "path": "/about"},
-                {"title": "Projects", "path": "/projects"},
-                {"title": "Services", "path": "/services"},
+                {"title": "Home", "path": "/", "icon": "Home"},
+                {"title": "About Us", "path": "/about", "icon": "Info"},
+                {"title": "Services", "path": "/services", "icon": "Cpu"},
+                {"title": "Projects", "path": "/projects", "icon": "Briefcase"},
+                
+                {"title": "Contact", "path": "/contact", "icon": "Mail"},
             ],
             "aboutData": {
                 "stats": {

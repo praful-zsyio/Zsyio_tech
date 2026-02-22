@@ -1,15 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getServices } from "../../services/api";
 import * as LucideIcons from "lucide-react";
 import { addToCart } from "../../utils/cart";
+import { getIcon } from "../../utils/iconMap";
 
 const ServicesGrid = ({ isInView = true }) => {
   const navigate = useNavigate();
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
-  // Track quantity and cart-add state per service slug
   const [quantities, setQuantities] = useState({});
   const [addedMap, setAddedMap] = useState({});
 
@@ -18,7 +18,6 @@ const ServicesGrid = ({ isInView = true }) => {
       .then(res => {
         const data = Array.isArray(res.data) ? res.data : [];
         setServices(data);
-        // Init quantities to 1 for each service
         const initQty = {};
         data.forEach(s => { initQty[s.slug || s.id] = 1; });
         setQuantities(initQty);
@@ -47,7 +46,6 @@ const ServicesGrid = ({ isInView = true }) => {
       slug: key,
     });
 
-    // Show "Added!" feedback
     setAddedMap(prev => ({ ...prev, [key]: true }));
     setTimeout(() => {
       setAddedMap(prev => ({ ...prev, [key]: false }));
@@ -91,7 +89,7 @@ const ServicesGrid = ({ isInView = true }) => {
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-24"
     >
       {services.map((service, index) => {
-        const Icon = LucideIcons[service.icon] || LucideIcons.HelpCircle;
+        const Icon = getIcon(service.icon, service.title);
         const key = service.slug || service.id || index;
         const qty = quantities[key] || 1;
         const isAdded = addedMap[key];
@@ -184,7 +182,6 @@ const ServicesGrid = ({ isInView = true }) => {
 
             {/* Action buttons */}
             <div className="flex gap-2">
-              {/* Add to Cart */}
               <button
                 onClick={() => handleAddToCart(service)}
                 className="
@@ -219,7 +216,6 @@ const ServicesGrid = ({ isInView = true }) => {
                 </AnimatePresence>
               </button>
 
-              {/* Get Estimate */}
               <button
                 onClick={() => navigate(`/estimate/${service.slug}`)}
                 className="

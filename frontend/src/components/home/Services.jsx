@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { getServices, getCategorizedTechnologies } from "../../services/api";
 import * as LucideIcons from "lucide-react";
+import { getIcon } from "../../utils/iconMap";
 
 
 const Services = () => {
@@ -90,7 +91,7 @@ const Services = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-20"
         >
           {Array.isArray(services) && services.map((service, index) => {
-            const Icon = LucideIcons[service.icon] || LucideIcons.HelpCircle;
+            const Icon = getIcon(service.icon, service.title);
             return (
               <motion.article
                 key={service.slug || index}
@@ -164,7 +165,7 @@ const Services = () => {
 
                 <div className="space-y-3">
                   {group.items.map((tech, i) => {
-                    const TechIcon = LucideIcons[tech.icon] || LucideIcons.HelpCircle;
+                    const TechIcon = getIcon(tech.icon, tech.name);
                     return (
                       <div
                         key={i}
@@ -182,23 +183,7 @@ const Services = () => {
         </motion.section>
 
 
-        {/* ✅ Get Estimation Button */}
-        <div className="mt-20 flex justify-center">
-          <Link
-            to="/services"
-            className="
-              inline-flex items-center justify-center
-              rounded-xl border border-[hsl(var(--blue))]
-              px-8 py-3
-              text-sm font-semibold
-              text-[hsl(var(--blue))]
-              hover:bg-[hsl(var(--blue))]/10
-              transition
-            "
-          >
-            Get Estimation
-          </Link>
-        </div>
+
       </div>
     </section>
   );

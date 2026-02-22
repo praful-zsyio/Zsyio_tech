@@ -48,9 +48,9 @@ const ServicesPage = () => {
         </motion.header>
 
         {/* Sections */}
-        <ServicesGrid isInView={isInView} />
-        <TechnologiesGrid isInView={isInView} />
-        <CartAndContact />
+        <div id="grid"><ServicesGrid isInView={isInView} /></div>
+        <div id="tech"><TechnologiesGrid isInView={isInView} /></div>
+        <div id="estimation"><CartAndContact /></div>
       </div>
     </section>
   );

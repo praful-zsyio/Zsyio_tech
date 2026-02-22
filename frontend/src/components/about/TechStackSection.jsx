@@ -44,7 +44,9 @@ const TechStackGroup = ({ title, items }) => {
             const name = typeof item === 'string' ? item : item.name;
             const iconName = typeof item === 'string' ? null : item.icon;
             const color = typeof item === 'string' ? null : item.color;
-            const Icon = LucideIcons[iconName] || null;
+            const Icon = iconName ? (LucideIcons[iconName] ||
+              LucideIcons[iconName.charAt(0).toUpperCase() + iconName.slice(1)] ||
+              null) : null;
 
             return (
               <span

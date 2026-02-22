@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { getCategorizedTechnologies } from "../../services/api";
 import * as LucideIcons from "lucide-react";
+import { getIcon } from "../../utils/iconMap";
 
 const item = {
   hidden: { opacity: 0, y: 28 },
@@ -77,7 +78,7 @@ const TechnologiesGrid = ({ isInView = true }) => {
 
             <div className="space-y-3">
               {group.items.map((tech, i) => {
-                const TechIcon = LucideIcons[tech.icon] || LucideIcons.HelpCircle;
+                const TechIcon = getIcon(tech.icon, tech.name);
                 return (
                   <div
                     key={i}
