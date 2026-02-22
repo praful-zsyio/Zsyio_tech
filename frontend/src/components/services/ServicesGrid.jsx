@@ -127,54 +127,61 @@ const ServicesGrid = ({ isInView = true }) => {
             </p>
 
             {/* Price Display */}
-            <div className="mb-3 mt-auto">
-              <span className="text-sm text-[hsl(var(--subtext1))]">Starts from </span>
-              <span className="text-lg font-bold text-[hsl(var(--blue))]">
+            <div className="mb-4 mt-auto">
+              <span className="text-xs text-[hsl(var(--subtext1))] uppercase tracking-wider font-medium">Starting Price</span>
+              <div className="text-xl font-bold text-[hsl(var(--text))]">
                 ₹{Number(service.base_rate || 0).toLocaleString("en-IN")}
-              </span>
+              </div>
             </div>
 
             {/* ── Quantity Selector ── */}
-            <div className="flex items-center justify-between mb-3 rounded-xl border border-[hsl(var(--surface2))] bg-[hsl(var(--base))]/60 px-3 py-2">
-              <span className="text-xs text-[hsl(var(--subtext1))] font-medium select-none">Qty</span>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => handleQtyChange(key, -1)}
-                  disabled={qty <= 1}
-                  aria-label="Decrease quantity"
-                  className="
-                    w-7 h-7 rounded-lg flex items-center justify-center
-                    border border-[hsl(var(--surface2))]
-                    text-[hsl(var(--subtext1))]
-                    hover:border-[hsl(var(--blue))] hover:text-[hsl(var(--blue))]
-                    disabled:opacity-30 disabled:cursor-not-allowed
-                    transition-all duration-150 text-base font-bold
-                    select-none
-                  "
-                >
-                  −
-                </button>
-                <span className="text-sm font-semibold text-[hsl(var(--text))] w-5 text-center tabular-nums">
-                  {qty}
-                </span>
-                <button
-                  onClick={() => handleQtyChange(key, +1)}
-                  aria-label="Increase quantity"
-                  className="
-                    w-7 h-7 rounded-lg flex items-center justify-center
-                    border border-[hsl(var(--surface2))]
-                    text-[hsl(var(--subtext1))]
-                    hover:border-[hsl(var(--blue))] hover:text-[hsl(var(--blue))]
-                    transition-all duration-150 text-base font-bold
-                    select-none
-                  "
-                >
-                  +
-                </button>
+            <div className="space-y-3 mb-4">
+              <div className="flex items-center justify-between rounded-xl border border-[hsl(var(--surface2))] bg-[hsl(var(--base))]/60 px-3 py-2">
+                <span className="text-xs text-[hsl(var(--subtext1))] font-medium select-none">Quantity</span>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => handleQtyChange(key, -1)}
+                    disabled={qty <= 1}
+                    aria-label="Decrease quantity"
+                    className="
+                      w-7 h-7 rounded-lg flex items-center justify-center
+                      border border-[hsl(var(--surface2))]
+                      text-[hsl(var(--subtext1))]
+                      hover:border-[hsl(var(--blue))] hover:text-[hsl(var(--blue))]
+                      disabled:opacity-30 disabled:cursor-not-allowed
+                      transition-all duration-150 text-base font-bold
+                      select-none
+                    "
+                  >
+                    −
+                  </button>
+                  <span className="text-sm font-semibold text-[hsl(var(--text))] w-5 text-center tabular-nums">
+                    {qty}
+                  </span>
+                  <button
+                    onClick={() => handleQtyChange(key, +1)}
+                    aria-label="Increase quantity"
+                    className="
+                      w-7 h-7 rounded-lg flex items-center justify-center
+                      border border-[hsl(var(--surface2))]
+                      text-[hsl(var(--subtext1))]
+                      hover:border-[hsl(var(--blue))] hover:text-[hsl(var(--blue))]
+                      transition-all duration-150 text-base font-bold
+                      select-none
+                    "
+                  >
+                    +
+                  </button>
+                </div>
               </div>
-              <span className="text-xs font-semibold text-[hsl(var(--blue))] tabular-nums">
-                ₹{(Number(service.base_rate || 0) * qty).toLocaleString("en-IN")}
-              </span>
+
+              {/* Estimation Total (Prominent) */}
+              <div className="flex items-center justify-between px-1">
+                <span className="text-xs text-[hsl(var(--subtext1))] font-medium">Estimated Total</span>
+                <span className="text-base font-bold text-[hsl(var(--blue))] tabular-nums">
+                  ₹{(Number(service.base_rate || 0) * qty).toLocaleString("en-IN")}
+                </span>
+              </div>
             </div>
 
             {/* Bottom accent line */}

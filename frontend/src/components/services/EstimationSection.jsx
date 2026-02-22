@@ -12,49 +12,36 @@ const SLUG_TO_SERVICE_ID = {
   "web-design": "web-designing",
   "design": "web-designing",
   "ui-design": "web-designing",
+  "digital-product-design": "web-designing",
 
   // Web Development
   "web-development": "web-development",
+  "web-app-development": "web-development",
+  "web-application-development": "web-development",
   "web-dev": "web-development",
-  "development": "web-development",
-  "website-development": "web-development",
 
   // Deployment
   "deployment": "deployment",
-  "deploy": "deployment",
-  "devops": "deployment",
   "cloud-deployment": "deployment",
-
-  // Company Details
-  "company-details": "company-details",
-  "company-profile": "company-details",
-  "company": "company-details",
 
   // Hosting
   "hosting": "hosting",
   "cloud-hosting": "hosting",
   "web-hosting": "hosting",
   "cloud-web-hosting": "hosting",
-  "server-hosting": "hosting",
 
   // App Development
   "app-development": "app-development",
+  "mobile-app-solutions": "app-development",
+  "mobile-app-dev": "app-development",
   "mobile-development": "app-development",
-  "mobile-app": "app-development",
-  "app": "app-development",
-  "android-development": "app-development",
-  "ios-development": "app-development",
 
   // Logo Design
   "logo-designing": "logo-designing",
   "logo-design": "logo-designing",
-  "logo": "logo-designing",
-  "branding": "logo-designing",
 
   // Data Solutions
   "data-solutions": "data-solutions",
-  "data": "data-solutions",
-  "analytics": "data-solutions",
   "data-analytics": "data-solutions",
 };
 
@@ -384,8 +371,8 @@ const Checkbox = ({ label, checked, onChange }) => (
     <div
       onClick={() => onChange(!checked)}
       className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${checked
-          ? "bg-[hsl(var(--blue))] border-[hsl(var(--blue))]"
-          : "border-[hsl(var(--surface2))]"
+        ? "bg-[hsl(var(--blue))] border-[hsl(var(--blue))]"
+        : "border-[hsl(var(--surface2))]"
         }`}
     >
       {checked && <span className="text-white text-xs">✓</span>}

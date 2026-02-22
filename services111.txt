@@ -1,0 +1,102 @@
+{
+  "services": [
+    {
+      "slug": "cloud-web-hosting",
+      "title": "Cloud Web Hosting",
+      "description": "Enterprise-grade AWS-powered hosting with automated scaling, free SSL, and a 99.99% uptime guarantee for high-traffic applications.",
+      "icon": "Cloud",
+      "icon_image": "/media/service_icons/cloud-hosting.png",
+      "gradient": "bg-gradient-to-br from-blue-500/20 to-indigo-600/20",
+      "base_rate": 500.0,
+      "hourly_rate": 20.0
+    },
+    {
+      "slug": "web-application-development",
+      "title": "Web Application Development",
+      "description": "Full-stack custom web solutions built for scale and performance using modern reactive frameworks and secure backend architectures.",
+      "icon": "Code",
+      "icon_image": "/media/service_icons/web-dev.png",
+      "gradient": "bg-gradient-to-br from-emerald-500/20 to-teal-600/20",
+      "base_rate": 1500.0,
+      "hourly_rate": 45.0
+    },
+    {
+      "slug": "mobile-app-solutions",
+      "title": "Mobile App Solutions",
+      "description": "Native-caliber mobile experiences for iOS and Android, leveraging cross-platform technologies to ensure rapid deployment and consistent UI.",
+      "icon": "Smartphone",
+      "icon_image": "/media/service_icons/mobile-dev.png",
+      "gradient": "bg-gradient-to-br from-orange-500/20 to-rose-600/20",
+      "base_rate": 2500.0,
+      "hourly_rate": 60.0
+    },
+    {
+      "slug": "digital-product-design",
+      "title": "Digital Product Design",
+      "description": "User-centric UI/UX design that bridges the gap between complex functionality and intuitive human interaction through data-driven research.",
+      "icon": "Palette",
+      "icon_image": "/media/service_icons/design.png",
+      "gradient": "bg-gradient-to-br from-purple-500/20 to-pink-600/20",
+      "base_rate": 1000.0,
+      "hourly_rate": 40.0
+    }
+  ],
+  "technologies": [
+    {
+      "name": "React.js",
+      "icon": "Atom",
+      "icon_image": "/media/tech_icons/react.png",
+      "color": "#61DAFB",
+      "category": "Frontend"
+    },
+    {
+      "name": "Next.js",
+      "icon": "Globe",
+      "icon_image": "/media/tech_icons/nextjs.png",
+      "color": "#FFFFFF",
+      "category": "Frontend"
+    },
+    {
+      "name": "Django Framework",
+      "icon": "Shield",
+      "icon_image": "/media/tech_icons/django.png",
+      "color": "#092E20",
+      "category": "Backend"
+    },
+    {
+      "name": "Node.js Environment",
+      "icon": "Server",
+      "icon_image": "/media/tech_icons/nodejs.png",
+      "color": "#339933",
+      "category": "Backend"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "icon": "Database",
+      "icon_image": "/media/tech_icons/mongodb.png",
+      "color": "#47A248",
+      "category": "Databases"
+    },
+    {
+      "name": "PostgreSQL relational",
+      "icon": "Database",
+      "icon_image": "/media/tech_icons/postgres.png",
+      "color": "#336791",
+      "category": "Databases"
+    },
+    {
+      "name": "Amazon Web Services",
+      "icon": "Cloud",
+      "icon_image": "/media/tech_icons/aws.png",
+      "color": "#FF9900",
+      "category": "Cloud Solutions"
+    },
+    {
+      "name": "Docker Containerization",
+      "icon": "Box",
+      "icon_image": "/media/tech_icons/docker.png",
+      "color": "#2496ED",
+      "category": "DevOps"
+    }
+  ]
+}
