@@ -58,15 +58,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 select-none" onClick={closeMenu}>
             <img className="h-10 w-auto" src={logo} alt="Zsyio logo" />
-            <div className="flex flex-col">
-              <span className="text-xl font-serif font-bold tracking-tight uppercase text-[hsl(var(--text))] hidden sm:block leading-none">
-                Zsyio
-              </span>
-              <span className="items-center gap-1 text-[8px] uppercase tracking-widest text-[hsl(var(--green))] font-bold hidden sm:flex">
-                <span className="h-1 w-1 rounded-full bg-[hsl(var(--green))] animate-pulse" />
-                Live
-              </span>
-            </div>
+            <span className="text-xl font-serif font-bold tracking-tight uppercase text-[hsl(var(--text))] hidden sm:block">
+              Zsyio
+            </span>
           </Link>
 
           {/* Desktop Nav */}
