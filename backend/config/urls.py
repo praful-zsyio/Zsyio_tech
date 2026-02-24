@@ -38,4 +38,6 @@ urlpatterns = [
     path('api/cloudinary/', include('apps.cloudinary_upload.urls')),
     path('api/theme/', include('apps.theme.urls')),
     path('api/colors/', include('apps.colors.urls')),
+    path('api/newsletter/', include('apps.newsletter.urls')),
+    path('api/newsletter', include('apps.newsletter.urls')),
 ]

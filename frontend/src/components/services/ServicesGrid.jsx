@@ -5,6 +5,7 @@ import { getServices } from "../../services/api";
 import * as LucideIcons from "lucide-react";
 import { addToCart } from "../../utils/cart";
 import { getIcon } from "../../utils/iconMap";
+import { useInterval } from "../../utils/hooks";
 
 const ServicesGrid = ({ isInView = true }) => {
   const navigate = useNavigate();
@@ -25,6 +26,17 @@ const ServicesGrid = ({ isInView = true }) => {
       .catch(err => console.error("Error fetching services:", err))
       .finally(() => setLoading(false));
   }, []);
+
+  useInterval(() => {
+    getServices()
+      .then(res => {
+        const data = Array.isArray(res.data) ? res.data : [];
+        if (JSON.stringify(data) !== JSON.stringify(services)) {
+          setServices(data);
+        }
+      })
+      .catch(err => console.error("Auto-reload services failed:", err));
+  }, 3000);
 
   const handleQtyChange = (key, delta) => {
     setQuantities(prev => ({

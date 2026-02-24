@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getProjects } from "../services/api";
+import { useInterval } from "../utils/hooks";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +21,16 @@ const ProjectsPage = () => {
       .catch((error) => console.error("Error fetching projects:", error))
       .finally(() => setLoading(false));
   }, []);
+
+  useInterval(() => {
+    getProjects()
+      .then((response) => {
+        if (JSON.stringify(response.data) !== JSON.stringify(projectsData)) {
+          setProjectsData(response.data);
+        }
+      })
+      .catch((error) => console.error("Auto-reload projects failed:", error));
+  }, 3000);
 
   useGSAP(
     () => {
@@ -153,13 +164,13 @@ const ProjectsPage = () => {
               >
                 {/* subtle top accent line */}
                 <div
-                  className="absolute inset-x-5 top-0 h-[2px] bg-gradient-to-r from-transparent via-[hsl(var(--blue))] to-transparent opacity-80"
+                  className="absolute inset-x-5 top-0 h-[2px] bg-linear-to-r from-transparent via-[hsl(var(--blue))] to-transparent opacity-80"
                   aria-hidden="true"
                 />
 
                 {/* subtle right glow */}
                 <div
-                  className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[hsl(var(--blue))]/10 to-transparent pointer-events-none"
+                  className="absolute inset-y-0 right-0 w-24 bg-linear-to-l from-[hsl(var(--blue))]/10 to-transparent pointer-events-none"
                   aria-hidden="true"
                 />
 

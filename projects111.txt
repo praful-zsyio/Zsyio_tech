@@ -1,0 +1,81 @@
+[
+  {
+    "title": "Planets - Solar System Guide",
+    "category": "Web Application",
+    "summary": "An interactive and educational guide to our solar system's planets with detailed facts.",
+    "tech_stack": ["React", "JavaScript", "TailwindCSS", "Framer Motion"],
+    "tags": ["Featured", "Frontend", "Educational", "Interactive"],
+    "features": [
+      "Interactive planet selection and exploration",
+      "Detailed planetary statistics and internal structure views",
+      "Responsive design for all device sizes",
+      "Smooth animations for a premium feel"
+    ],
+    "live_url": "https://planets-bice.vercel.app/",
+    "github_url": "https://github.com/Mayawaaan/Planets.git",
+    "client": "Open Source / Personal",
+    "duration": "2 Weeks",
+    "role": "Frontend Developer",
+    "description": "A high-performance, interactive guide to the solar system planets, featuring glassmorphism design and smooth UI transitions."
+  },
+  {
+    "title": "Shopkeeper - Full E-Commerce Platform",
+    "category": "Web Application",
+    "summary": "Complete MERN stack e-commerce with role-based auth & payments",
+    "tech_stack": ["React", "Node.js", "Express", "MongoDB", "JWT", "Stripe", "TailwindCSS"],
+    "tags": ["Featured", "MERN", "E-Commerce", "Production"],
+    "features": [
+      "Role-based authentication (Admin/Customer/Seller)",
+      "Real-time inventory management",
+      "Stripe payment integration with webhooks",
+      "Advanced search with filters & pagination",
+      "Order tracking & analytics dashboard"
+    ],
+    "live_url": "https://shopkeeper.example.com",
+    "github_url": "https://github.com/yourusername/shopkeeper",
+    "client": "Local Business Owners",
+    "duration": "4 Months",
+    "role": "Full Stack Development & Deployment",
+    "description": "gvbjhvcnvbhjn"
+  },
+  {
+    "title": "CRUD Store - Inventory Management",
+    "category": "Web Application",
+    "summary": "A MERN stack project for managing store inventory, featuring Create, Read, Update, and Delete functionalities.",
+    "tech_stack": ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+    "tags": ["Full Stack", "MERN", "Inventory", "Management"],
+    "features": [
+      "Dynamic product creation and listing",
+      "Real-time inventory updates and deletion",
+      "Intuitive search and filtering interface",
+      "Responsive dashboard for stock tracking"
+    ],
+    "live_url": "https://project1-gzie.onrender.com/",
+    "github_url": "https://github.com/Mayawaaan/CRUD-Store.git",
+    "client": "Personal Project",
+    "duration": "1 Month",
+    "role": "Full Stack Developer",
+    "description": "A comprehensive inventory management system built with the MERN stack, designed to streamline shop operations through a robust CRUD interface."
+  },
+  {
+    "title": "Audi R8 - Interactive Automotive Showcase",
+    "category": "Web Application",
+    "summary": "A high-performance, visually stunning interactive gallery and information portal for the Audi R8.",
+    "tech_stack": ["React", "JavaScript", "TailwindCSS", "Framer Motion", "GSAP"],
+    "tags": ["Featured", "Frontend", "Automotive", "High-Performance"],
+    "features": [
+      "Smooth GSAP animations for immersive user experience",
+      "Dynamic 360-degree views and interactive highlights",
+      "Technical specifications comparison table",
+      "Responsive luxury-themed design"
+    ],
+    "live_url": "https://audi-r8-woad.vercel.app/",
+    "github_url": "https://github.com/Mayawaaan/AudiR8.git",
+    "client": "Enthusiasts Product",
+    "duration": "3 Weeks",
+    "role": "Frontend Architect",
+    "description": "A premium automotive showcase website dedicated to the Audi R8, focusing on high-end animations and performance-optimized visuals."
+  }
+]
+
+

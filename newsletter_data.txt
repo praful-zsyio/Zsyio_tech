@@ -1,0 +1,26 @@
+[
+  {
+    "email": "praful@zsyio.com",
+    "subscribed_at": "2026-02-24T10:24:34Z",
+    "status": "active",
+    "source": "website_footer"
+  },
+  {
+    "email": "contact@zsyio.com",
+    "subscribed_at": "2026-02-24T09:15:00Z",
+    "status": "active",
+    "source": "contact_page"
+  },
+  {
+    "email": "test.user@example.com",
+    "subscribed_at": "2026-02-23T14:20:10Z",
+    "status": "active",
+    "source": "pop_up"
+  },
+  {
+    "email": "newsletter.fan@gmail.com",
+    "subscribed_at": "2026-02-22T11:45:30Z",
+    "status": "active",
+    "source": "blog_post"
+  }
+]

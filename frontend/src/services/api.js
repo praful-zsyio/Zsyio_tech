@@ -158,5 +158,10 @@ export const createAbout = (aboutData) => {
 export const createProject = (projectData) => api.post('projects/', projectData);
 export const deleteProject = (id) => api.delete(`projects/${id}/`);
 
+// Reload APIs
+export const reloadServices = () => api.get('services/services/reload/');
+export const reloadProjects = () => api.get('projects/reload/');
+export const reloadNewsletter = () => api.get('newsletter/subscribe/'); // Using GET on subscribe view as configured
+
 export default api;
 

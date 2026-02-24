@@ -4,6 +4,7 @@ from django.conf import settings
 from .models import Project
 from .serializers import ProjectSerializer
 from apps.utils.mongo import get_mongo_db, mongo_log
+from apps.utils.views import ReloadMixin
 from bson.objectid import ObjectId
 import datetime
 
@@ -34,7 +35,7 @@ def serialize_mongo_doc(doc):
         return new_doc
     return doc
 
-class ProjectViewSet(viewsets.ModelViewSet):
+class ProjectViewSet(ReloadMixin, viewsets.ModelViewSet):
     queryset = Project.objects.none()
     serializer_class = ProjectSerializer
     permission_classes = [permissions.AllowAny]

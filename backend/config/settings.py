@@ -121,6 +121,7 @@ INSTALLED_APPS = [
     'apps.cloudinary_upload',
     'apps.theme',
     'apps.colors',
+    'apps.newsletter',
 ]
 
 MIDDLEWARE = [
@@ -174,6 +175,7 @@ MIGRATION_MODULES = {
     'contact': 'apps.no_migrations',
     'theme': 'apps.no_migrations',
     'colors': 'apps.no_migrations',
+    'newsletter': 'apps.no_migrations',
 }
 
 

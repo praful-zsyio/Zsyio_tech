@@ -11,6 +11,14 @@ class ContactSubmissionView(generics.CreateAPIView):
     serializer_class = ContactSubmissionSerializer
     permission_classes = [permissions.AllowAny]
     authentication_classes = []
+    
+    def get(self, request):
+        return Response({
+            "status": "success",
+            "message": "Contact app reloaded successfully",
+            "timestamp": datetime.datetime.utcnow().isoformat(),
+            "app": "contact"
+        })
 
     def post(self, request, *args, **kwargs):
         # Validate data without saving to ORM
@@ -24,7 +32,6 @@ class ContactSubmissionView(generics.CreateAPIView):
         message = data.get('message')
         
         # Log to MongoDB
-        submission_id = 'pending'
         mongo_success = mongo_log('contact_submissions', {
             'type': 'contact_submission',
             'name': name,

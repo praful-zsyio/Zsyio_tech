@@ -1,0 +1,215 @@
+{
+  "services": [
+    {
+      "slug": "web-designing",
+      "title": "Web Designing",
+      "description": "Beautiful, user-centric designs that captivate and engage your audience.",
+      "icon": "Palette",
+      "icon_image": "/media/service_icons/web-designing.png",
+      "gradient": "bg-gradient-to-br from-[#97DFFC]/20 to-[#8EB5F0]/20",
+      "base_rate": 8000.0,
+      "hourly_rate": 600.0
+    },
+    {
+      "slug": "web-development",
+      "title": "Web Development",
+      "description": "Robust, scalable web applications built with cutting-edge technologies.",
+      "icon": "Code",
+      "icon_image": "/media/service_icons/web-development.png",
+      "gradient": "bg-gradient-to-br from-[#8EB5F0]/20 to-[#8AA0EA]/20",
+      "base_rate": 15000.0,
+      "hourly_rate": 1200.0
+    },
+    {
+      "slug": "deployment",
+      "title": "Web Deployment",
+      "description": "Seamless deployment solutions ensuring your application is always online.",
+      "icon": "Rocket",
+      "icon_image": "/media/service_icons/deployment.png",
+      "gradient": "bg-gradient-to-br from-[#8AA0EA]/20 to-[#8895E7]/20",
+      "base_rate": 5000.0,
+      "hourly_rate": 400.0
+    },
+    {
+      "slug": "company-details",
+      "title": "Company Details",
+      "description": "Professional company profiles and information management systems.",
+      "icon": "Building2",
+      "icon_image": "/media/service_icons/company-details.png",
+      "gradient": "bg-gradient-to-br from-[#8895E7]/20 to-[#858AE3]/20",
+      "base_rate": 4000.0,
+      "hourly_rate": 350.0
+    },
+    {
+      "slug": "hosting",
+      "title": "Web Hosting",
+      "description": "Reliable, fast, and secure hosting solutions for your online presence.",
+      "icon": "Globe",
+      "icon_image": "/media/service_icons/hosting.png",
+      "gradient": "bg-gradient-to-br from-[#858AE3]/20 to-[#8AA0EA]/20",
+      "base_rate": 3000.0,
+      "hourly_rate": 250.0
+    },
+    {
+      "slug": "app-development",
+      "title": "App Development",
+      "description": "Native and cross-platform mobile applications that users love.",
+      "icon": "Smartphone",
+      "icon_image": "/media/service_icons/app-development.png",
+      "gradient": "bg-gradient-to-br from-[#8AA0EA]/20 to-[#97DFFC]/20",
+      "base_rate": 25000.0,
+      "hourly_rate": 1500.0
+    },
+    {
+      "slug": "logo-designing",
+      "title": "Logo Designing",
+      "description": "Unique brand identities that make your business stand out.",
+      "icon": "Sparkles",
+      "icon_image": "/media/service_icons/logo-designing.png",
+      "gradient": "bg-gradient-to-br from-[#97DFFC]/30 to-[#8895E7]/30",
+      "base_rate": 6000.0,
+      "hourly_rate": 500.0
+    },
+    {
+      "slug": "data-solutions",
+      "title": "Data Related Solutions",
+      "description": "Advanced analytics and data management to drive informed decisions.",
+      "icon": "BarChart",
+      "icon_image": "/media/service_icons/data-solutions.png",
+      "gradient": "bg-gradient-to-br from-[#8EB5F0]/20 to-[#858AE3]/20",
+      "base_rate": 18000.0,
+      "hourly_rate": 1300.0
+    },
+    {
+      "slug": "digital-product-design",
+      "title": "Digital Product Design",
+      "description": "User-centric UI/UX design that bridges the gap between complex functionality and intuitive human interaction through data-driven research.",
+      "icon": "Palette",
+      "icon_image": "/media/service_icons/design.png",
+      "gradient": "bg-gradient-to-br from-purple-500/20 to-pink-600/20",
+      "base_rate": 1000.0,
+      "hourly_rate": 40.0
+    }
+  ],
+  "technologies": [
+    {
+      "name": "React.js",
+      "icon": "Atom",
+      "icon_image": "/media/tech_icons/react.png",
+      "color": "#61DAFB",
+      "category": "Frontend"
+    },
+    {
+      "name": "Vue.js",
+      "icon": "Box",
+      "icon_image": "/media/tech_icons/vue.png",
+      "color": "#42B883",
+      "category": "Frontend"
+    },
+    {
+      "name": "Angular",
+      "icon": "Shield",
+      "icon_image": "/media/tech_icons/angular.png",
+      "color": "#DD0031",
+      "category": "Frontend"
+    },
+    {
+      "name": "Next.js",
+      "icon": "Triangle",
+      "icon_image": "/media/tech_icons/nextjs.png",
+      "color": "#000000",
+      "category": "Frontend"
+    },
+    {
+      "name": "Node.js",
+      "icon": "Hexagon",
+      "icon_image": "/media/tech_icons/nodejs.png",
+      "color": "#339933",
+      "category": "Backend"
+    },
+    {
+      "name": "Express.js",
+      "icon": "TrainTrack",
+      "icon_image": "/media/tech_icons/express.png",
+      "color": "#000000",
+      "category": "Backend"
+    },
+    {
+      "name": "Python",
+      "icon": "Code",
+      "icon_image": "/media/tech_icons/python.png",
+      "color": "#3776AB",
+      "category": "Backend"
+    },
+    {
+      "name": "Django",
+      "icon": "Guitar",
+      "icon_image": "/media/tech_icons/django.png",
+      "color": "#092E20",
+      "category": "Backend"
+    },
+    {
+      "name": "MongoDB",
+      "icon": "Leaf",
+      "icon_image": "/media/tech_icons/mongodb.png",
+      "color": "#47A248",
+      "category": "Databases"
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "Database",
+      "icon_image": "/media/tech_icons/postgresql.png",
+      "color": "#4169E1",
+      "category": "Databases"
+    },
+    {
+      "name": "MySQL",
+      "icon": "Database",
+      "icon_image": "/media/tech_icons/mysql.png",
+      "color": "#4479A1",
+      "category": "Databases"
+    },
+    {
+      "name": "Redis",
+      "icon": "Database",
+      "icon_image": "/media/tech_icons/redis.png",
+      "color": "#DC382D",
+      "category": "Databases"
+    },
+    {
+      "name": "AWS",
+      "icon": "Cloud",
+      "icon_image": "/media/tech_icons/aws.png",
+      "color": "#FF9900",
+      "category": "Cloud Solutions"
+    },
+    {
+      "name": "Azure",
+      "icon": "Cloud",
+      "icon_image": "/media/tech_icons/azure.png",
+      "color": "#0089D6",
+      "category": "Cloud Solutions"
+    },
+    {
+      "name": "Google Cloud",
+      "icon": "Cloud",
+      "icon_image": "/media/tech_icons/google-cloud.png",
+      "color": "#4285F4",
+      "category": "Cloud Solutions"
+    },
+    {
+      "name": "Digital Ocean",
+      "icon": "Droplets",
+      "icon_image": "/media/tech_icons/digital-ocean.png",
+      "color": "#0080FF",
+      "category": "Cloud Solutions"
+    },
+    {
+      "name": "Docker Containerization",
+      "icon": "Box",
+      "icon_image": "/media/tech_icons/docker.png",
+      "color": "#2496ED",
+      "category": "DevOps"
+    }
+  ]
+}

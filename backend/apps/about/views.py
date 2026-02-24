@@ -2,6 +2,7 @@ from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from apps.utils.mongo import get_mongo_db, mongo_log
+from apps.utils.views import ReloadMixin
 from bson.objectid import ObjectId
 import datetime
 import traceback
@@ -30,7 +31,7 @@ def serialize_mongo_doc(doc):
     return doc
 
 
-class AboutViewSet(viewsets.ViewSet):
+class AboutViewSet(ReloadMixin, viewsets.ViewSet):
     """
     Pure MongoDB ViewSet for About content.
     No ORM / serializer dependency.
